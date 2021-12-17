@@ -2,7 +2,6 @@ package slack.repository.db;
 
 import slack.model.Message;
 import slack.repository.Repository;
-import slack.repository.RepositoryFactory;
 
 import java.util.List;
 
