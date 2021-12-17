@@ -48,12 +48,13 @@ public class User implements HasId {
     public String getMail() {
         return mail;
     }
+
     @Override
     public String getId() {
-        return userId;
+        return username;
     }
 
     public String toString(){
-        return (nom+" "+prenom+" "+mail+" "+userId);
+        return (username+" "+nom+" "+prenom+" "+mail+" "+userId);
     }
 }
