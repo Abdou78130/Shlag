@@ -12,14 +12,7 @@ public class UserService {
         User user = userRepository.select(name);
         if (user == null) {
             //TODO : Erreur user existe pas
-            System.out.println("ERREUR : User n'existe pas");
         }
-        else{
-            if(password==user.getMdp()){
-                
-            }
-        }
-        
 
     }
 
