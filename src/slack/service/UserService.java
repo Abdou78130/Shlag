@@ -8,16 +8,18 @@ public class UserService {
 
     private final Repository<User> userRepository = RepositoryFactory.createUser();
 
-    public void authenticate(String name, String password) {
+    public boolean authenticate(String name, String password) {
         User user = userRepository.select(name);
         if (user == null) {
-            //TODO : Erreur user existe pas
-            System.out.println("ERREUR : User n'existe pas");
+            System.out.print("ERREUR : Le pseudo rentré n'existe pas");
+            return false;
+        }
+        if(password==user.getPassword()){
+                return true;
         }
         else{
-            if(password==user.getMdp()){
-                
-            }
+            System.out.print("ERREUR : le mot de passe rentré est incorrect");
+            return false;
         }
         
 
