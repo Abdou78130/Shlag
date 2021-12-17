@@ -11,7 +11,7 @@ public class UserService {
     public boolean authenticate(String name, String password) {
         User user = userRepository.select(name);
         if (user == null) {
-            System.out.print("ERREUR : Le pseudo rentré n'existe pas");
+            System.out.println("ERREUR : Le pseudo entré n'existe pas");
             return false;
         }
         if(password==user.getPassword()){

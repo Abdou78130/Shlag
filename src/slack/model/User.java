@@ -8,6 +8,7 @@ public class User implements HasId {
     protected String mail;
     protected String nom;
     protected String prenom;
+
     public User(String username, String mdp, String mail, String nom, String prenom){
         this.username=username;
         this.password=mdp;
@@ -50,5 +51,9 @@ public class User implements HasId {
     @Override
     public String getId() {
         return userId;
+    }
+
+    public String toString(){
+        return (nom+" "+prenom+" "+mail+" "+userId);
     }
 }
