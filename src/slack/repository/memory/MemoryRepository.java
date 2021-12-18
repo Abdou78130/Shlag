@@ -59,11 +59,7 @@ public class MemoryRepository<T extends HasId> implements Repository<T> {
         for(User u : list){
             System.out.println(u);
         }
-
-
        System.out.println(us.authenticate("veeko","mdp"));
-
-
 
     }
 }
