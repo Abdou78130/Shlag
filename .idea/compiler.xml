@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="JavaFXModule" target="17" />
+      <module name="JavaFXModule" target="1.5" />
       <module name="ShlagFX" target="1.5" />
       <module name="untitled" target="17" />
     </bytecodeTargetLevel>
