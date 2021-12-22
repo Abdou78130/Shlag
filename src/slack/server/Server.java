@@ -10,7 +10,7 @@ import java.util.concurrent.Executors;
 
 public class Server {
 
-    public static void main(String[] args) throws IOException {
+    public static void runServer() throws IOException {
         ExecutorService pool = Executors.newCachedThreadPool();
         System.out.println("Creating a server on port 1236");
         try(ServerSocket serverSocket = new ServerSocket(1236)) {
