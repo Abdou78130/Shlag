@@ -1,11 +1,8 @@
 package slack.service;
 
-import slack.model.Message;
 import slack.model.User;
 import slack.repository.Repository;
 import slack.repository.RepositoryFactory;
-
-import java.util.function.ToDoubleBiFunction;
 
 public class UserService {
 
