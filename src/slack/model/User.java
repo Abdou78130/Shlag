@@ -3,8 +3,6 @@ package slack.model;
 public class User implements HasId {
     protected String username;
     protected String password;
-    private static int cpt=0;
-    protected String userId;
     protected String mail;
     protected String nom;
     protected String prenom;
@@ -15,8 +13,6 @@ public class User implements HasId {
         this.mail=mail;
         this.nom=nom;
         this.prenom=prenom;
-        userId=String.valueOf(cpt);
-        cpt++;
     }
     public void setPrenom(String p){
         this.prenom=p;
@@ -55,6 +51,6 @@ public class User implements HasId {
     }
 
     public String toString(){
-        return (username+" "+nom+" "+prenom+" "+mail+" "+userId);
+        return (username+" "+nom+" "+prenom+" "+mail);
     }
 }

@@ -1,7 +1,9 @@
 package slack.server;
 
-import java.io.IOException;
-import java.io.StringWriter;
+import slack.model.Message;
+import slack.service.UserService;
+
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
@@ -9,22 +11,24 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Server {
-
     public static void runServer() throws IOException {
         ExecutorService pool = Executors.newCachedThreadPool();
         System.out.println("Creating a server on port 1236");
         try(ServerSocket serverSocket = new ServerSocket(1236)) {
-            System.out.println("Waiting a connection...");
-            int idClient = 0;
             while(true) {
                 Socket socket = serverSocket.accept();
-                int myid = ++idClient;
                 pool.submit(() -> {
-                    System.out.println("A client is connected from " + socket.getInetAddress().getHostAddress());
-                    StringWriter writer = new StringWriter();
-                    //IOUtils.copy(socket.getInputStream(), writer, StandardCharsets.UTF_8);
-                    System.out.println("Client " + myid + " has sent : \n" + writer);
-                    return true;
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                    String ligne = reader.readLine();
+                    String reponse =ligne;
+                    System.out.println(reponse+" s'est connecté !");
+                    //MessageService ms = new MessageService(); TODO
+                    while(true) {
+                        ligne = reader.readLine();
+                        reponse = ligne;
+                        System.out.println(reponse);
+                        //ms.saveMessage(); TODO fct qui sauvegarde le message dans la base de donnée
+                    }
                 });
             }
         } finally {
