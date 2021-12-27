@@ -1,3 +1,31 @@
+* {
+    /*-fx-font: 16px "Lato Regular";*/
+
+
+    /* CSS HEX */
+    medium-slate-blue: #7f7effff;
+    mint-cream: #f1fffaff;
+    melon: #f7af9dff;
+    midnight-blue: #190e4fff;
+    oxford-blue: #03012cff;
+
+
+    -fx-text-fill : mint-cream;
+}
+
+
 #buttonTest{
-    -fx-background-color : red;
+    -fx-background-color : medium-slate-blue;
+}
+
+.inputs{
+    -fx-background-color : mint-cream;
+}
+
+.title{
+    -fx-font: 30px "Lato Regular";
+}
+
+.background{
+    -fx-background-color : oxford-blue;
 }
