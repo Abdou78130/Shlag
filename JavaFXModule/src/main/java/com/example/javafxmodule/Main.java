@@ -16,7 +16,7 @@ public class Main extends Application {
         //String css = this.getClass().getResource("application.css").toExternalForm();
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         //scene.getStylesheets().add(css);
-        scene.getStylesheets().add("src/main/java/com/example/javafxmodule/application.css");
+        scene.getStylesheets().add("application.css");
 
         stage.setTitle("Hello!");
         stage.setScene(scene);
