@@ -14,7 +14,7 @@ public class Main extends Application {
 
         //fxmlLoader.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
         //String css = this.getClass().getResource("application.css").toExternalForm();
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 1920, 1080);
         //scene.getStylesheets().add(css);
         scene.getStylesheets().add("application.css");
 

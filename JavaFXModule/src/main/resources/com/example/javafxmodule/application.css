@@ -1,30 +1,29 @@
 * {
-    /*-fx-font: 16px "Lato Regular";*/
+    -fx-font: 22px "Lato Light";
 
 
     /* CSS HEX */
-    medium-slate-blue: #7f7effff;
-    mint-cream: #f1fffaff;
+    medium-slate-blue: #313628ff;
+    mint-cream: #5c5552ff;
     melon: #f7af9dff;
     midnight-blue: #190e4fff;
     oxford-blue: #03012cff;
 
 
-    -fx-text-fill : mint-cream;
+    -fx-text-fill : melon;
 }
 
 
 #buttonTest{
-    -fx-background-color : medium-slate-blue;
-}
-
-.inputs{
     -fx-background-color : mint-cream;
 }
 
-.title{
-    -fx-font: 30px "Lato Regular";
+.inputs{
+    -fx-background-color: melon, #2f2d2f;
+    -fx-background-insets: 0, 1 0 0 0 ;
 }
+
+
 
 .background{
     -fx-background-color : oxford-blue;
