@@ -10,7 +10,7 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("sample.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("SignUp.fxml"));
 
         //fxmlLoader.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
         //String css = this.getClass().getResource("application.css").toExternalForm();
@@ -18,7 +18,7 @@ public class Main extends Application {
         //scene.getStylesheets().add(css);
         scene.getStylesheets().add("application.css");
 
-        stage.setTitle("Hello!");
+        stage.setTitle("Inscription");
         stage.setScene(scene);
         stage.show();
     }
