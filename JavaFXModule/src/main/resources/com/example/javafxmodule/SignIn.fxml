@@ -70,7 +70,7 @@
                <Cursor fx:constant="HAND" />
             </cursor>
          </Button>
-         <Hyperlink fx:id="switchToSignUpButton" alignment="BOTTOM_CENTER" contentDisplay="CENTER" onAction="#switchToSignUp" prefHeight="38.0" prefWidth="817.0" style="-fx-font-size: 18;" text="Créer un compte" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+         <Hyperlink fx:id="switchToSignUpButton" alignment="BOTTOM_CENTER" contentDisplay="CENTER" onAction="#switchToSignUp" prefHeight="38.0" prefWidth="817.0" style="-fx-font-size: 18; -fx-border-color: transparent;" text="Créer un compte" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
             <font>
                <Font size="9.0" />
             </font>
