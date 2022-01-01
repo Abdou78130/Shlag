@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="682.0" prefWidth="1228.0" styleClass="background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxmodule.ChannelChatController">
+   <children>
+      <TextArea layoutY="83.0" prefHeight="517.0" prefWidth="1228.0" styleClass="textAreaChat" />
+      <Label alignment="CENTER" layoutX="323.0" layoutY="32.0" prefHeight="28.0" prefWidth="583.0" text="Vous êtes connecté au channel : nomduchannel" />
+      <TextField layoutY="600.0" prefHeight="83.0" prefWidth="1228.0" styleClass="inputs" />
+   </children>
+</AnchorPane>
