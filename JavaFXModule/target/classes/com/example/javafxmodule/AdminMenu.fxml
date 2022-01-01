@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="1150.0" styleClass="background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxmodule.MenuController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="1150.0" styleClass="background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxmodule.AdminMenuController">
    <children>
       <GridPane prefHeight="666.0" prefWidth="1150.0">
         <columnConstraints>
@@ -26,7 +25,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="306.0" text="Channels" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#switchToChannelsList" prefHeight="50.0" prefWidth="306.0" text="Channels" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -35,6 +34,24 @@
                </effect>
             </Button>
             <Label alignment="CENTER" prefHeight="42.0" prefWidth="262.0" text="Voir la liste des channels" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#switchToChannelCreation" prefHeight="50.0" prefWidth="306.0" text="Créer" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <Blend opacity="0.52" />
+               </effect>
+            </Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#switchToChannelDelete" prefHeight="50.0" prefWidth="306.0" text="Supprimer" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <Blend opacity="0.52" />
+               </effect>
+            </Button>
+            <Label alignment="CENTER" prefHeight="42.0" prefWidth="262.0" text="Créer un channel" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Label alignment="CENTER" prefHeight="42.0" prefWidth="262.0" text="Supprimer un channel" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </children>
