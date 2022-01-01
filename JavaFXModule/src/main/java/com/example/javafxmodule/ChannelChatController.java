@@ -19,7 +19,12 @@ public class ChannelChatController {
     @FXML
     private TextField messageInput;
 
-
+    public void sendMessage(ActionEvent event){
+        //messageInput.setOnAction(event ->);
+        System.out.println(messageInput.getText());
+        chatArea.appendText("Pseudo : "+messageInput.getText()+"\n");
+        messageInput.clear();
+    }
 
     public void switchToChannelsList(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SignUpController.class.getResource("ChannelsList.fxml"));
@@ -31,4 +36,6 @@ public class ChannelChatController {
         stage.setScene(scene);
         stage.show();
     }
+
+
 }

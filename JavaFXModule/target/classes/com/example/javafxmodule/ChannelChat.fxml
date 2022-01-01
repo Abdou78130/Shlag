@@ -33,7 +33,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </TextArea>
-            <TextField fx:id="messageInput" prefHeight="50.0" prefWidth="1650.0" styleClass="inputs" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="messageInput" onAction="#sendMessage" prefHeight="50.0" prefWidth="1650.0" styleClass="inputs" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <effect>
                   <Bloom />
                </effect>
