@@ -5,7 +5,7 @@ import slack.service.*;
 
 public class Channel implements HasId{
     private String name;
-    private MessageService messages;
+    private Message messages;
 
     public Channel(String name){
         this.name=name;

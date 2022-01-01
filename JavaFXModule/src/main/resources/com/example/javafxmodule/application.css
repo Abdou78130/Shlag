@@ -24,6 +24,10 @@
 }
 
 
+.button{
+    -fx-background-color : mint-cream;
+}
+
 
 .background{
     -fx-background-color : oxford-blue;

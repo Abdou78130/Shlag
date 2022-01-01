@@ -13,7 +13,7 @@ public class ChannelService {
         Channel channel = ChannelRepository.select(name);
         ChannelRepository.delete(channel);
     }
-    
+
     public void modifierChannel(String name){
 
     }
