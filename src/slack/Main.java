@@ -3,6 +3,7 @@ package slack;
 import java.sql.*;
 import slack.model.User;
 import slack.server.Server;
+import slack.server.Client;
 import slack.service.UserService;
 
 import java.util.ArrayList;
