@@ -10,7 +10,8 @@ public class ChannelService {
     public final Repository<Channel> ChannelRepository = RepositoryFactory.createChannel();
 
     public void supprimerChannel(String name){
-
+        Channel channel = ChannelRepository.select(name);
+        ChannelRepository.delete(channel);
     }
     
     public void modifierChannel(String name){
@@ -18,6 +19,7 @@ public class ChannelService {
     }
 
     public void creerChannel(String name){
-
+        Channel channel = new channel(name);
+        ChannelRepository.insert(channel);
     }
 }

@@ -15,7 +15,8 @@ public class MessageService {
     }
 
     public void supprimerMessage(String mess){          //A changer avec l'id plutot
-        MessageRepository.delete(mess);
+        Message message = MessageRepository.select(mess);
+        MessageRepository.delete(message);
     }
 
 
