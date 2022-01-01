@@ -1,7 +1,6 @@
 package slack.service;
 
-import slack.model.Channel;
-import slack.model.User;
+import slack.model.*;
 import slack.repository.Repository;
 import slack.repository.RepositoryFactory;
 
@@ -14,7 +13,7 @@ public class ChannelService {
         Channel channel = ChannelRepository.select(name);
         ChannelRepository.delete(channel);
     }
-    
+
     public void modifierChannel(String name){
 
     }

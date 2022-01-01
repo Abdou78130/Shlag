@@ -8,23 +8,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserRepository implements Repository<User> {
-    private final String url = "jdbc:mysql://localhost:3306/shlag_db?useSSL=false";
 
 // User_db = Id/username/nom/prenom/mail/password/ChannelIdList
 
     @Override
     public User insert(User obj) {
         try {
-            Connection con = DriverManager.getConnection(url,"root","1234");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/shlag_db?useSSL=false","root","1234");
             Statement s = con.createStatement();
 
             //System.out.println("Connexion à la base de donnée réussie !");
 
             String requete = "insert into users values (" + obj.getUserId() + ",'" + obj.getId() + "','" + obj.getNom() + "','" + obj.getPrenom() + "','" + obj.getMail() + "','" + obj.getPassword() + "', ''," ;
             if (obj instanceof Admin)
-                s.executeUpdate(requete+"'true');");
+                s.executeUpdate(requete+"1);");
             else
-                s.executeUpdate(requete+"'false');");
+                s.executeUpdate(requete+"0);");
 
             s.close();
             con.close();
@@ -41,7 +40,7 @@ public class UserRepository implements Repository<User> {
     @Override
     public void delete(User obj) {
         try {
-            Connection con = DriverManager.getConnection(url,"root","1234");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/shlag_db?useSSL=false","root","1234");
             Statement s = con.createStatement();
 
             //System.out.println("Connexion à la base de donnée réussie !");
@@ -60,7 +59,7 @@ public class UserRepository implements Repository<User> {
     @Override
     public User select(String username) {
         try {
-            Connection con = DriverManager.getConnection(url,"root","1234");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/shlag_db?useSSL=false","root","1234");
             Statement s = con.createStatement();
             User user;
 
@@ -89,7 +88,7 @@ public class UserRepository implements Repository<User> {
     @Override
     public List<User> select(){
         try {
-            Connection con = DriverManager.getConnection(url,"root","1234");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/shlag_db?useSSL=false","root","1234");
             Statement s = con.createStatement();
 
             //System.out.println("Connexion à la base de donnée réussie !");
@@ -118,13 +117,17 @@ public class UserRepository implements Repository<User> {
     @Override
     public User update(User obj) {
         try{
-            Connection con = DriverManager.getConnection(url,"root","1234");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/shlag_db?useSSL=false","root","1234");
             Statement s = con.createStatement();
 
             //System.out.println("Connexion à la base de donnée réussie !");
 
+
             String requete = "update users set username = '"+obj.getId()+"', nom = '"+obj.getNom()+"', prenom = '"+obj.getPrenom()+"', mail = '"+obj.getMail()+"', password = '"+obj.getPassword()+"'";
-            s.executeUpdate(requete+" where username = '"+obj.getId()+"'");
+            if(obj instanceof Admin)
+                s.executeUpdate(requete+", isAdmin = 1 where username = '"+obj.getId()+"'");
+            else
+                s.executeUpdate(requete+", isAdmin = 0 where username = '"+obj.getId()+"'");
 
             s.close();
             con.close();

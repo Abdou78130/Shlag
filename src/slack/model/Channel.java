@@ -1,6 +1,7 @@
 package slack.model;
 
 import slack.repository.db.MessageRepository;
+import slack.service.*;
 
 public class Channel implements HasId{
     private String name;
