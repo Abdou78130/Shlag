@@ -4,6 +4,10 @@ public class Message implements HasId{
     private String message;
     private Channel channel;
 
+    public Message(Message message,Channel channel){
+        this.message=message;
+        this.channel=channel;
+    }
     // faut une valeur ici, un message peut etre ecrit plusieurs fois donc c'est pas un id
     @Override
     public String getId() { return message; }
@@ -11,4 +15,6 @@ public class Message implements HasId{
     public String getMessage(){
         return message;
     }
+
+    
 }
