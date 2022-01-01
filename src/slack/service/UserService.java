@@ -24,7 +24,7 @@ public class UserService {
     }
 
     public User inscription(String username, String mdp, String mail, String nom, String prenom){
-        User user= new User(User.getLastId(userRepository.select()),mdp,mail,nom,prenom);
+        User user= new User(User.getLastId(userRepository.select()),username,nom,prenom,mail,mdp);
         userRepository.insert(user);
         return user;
     }

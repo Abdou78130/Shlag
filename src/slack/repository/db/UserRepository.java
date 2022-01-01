@@ -1,7 +1,7 @@
 package slack.repository.db;
 import java.sql.*;
 
-import slack.model.User;
+import slack.model.*;
 import slack.repository.Repository;
 
 import java.util.ArrayList;
@@ -20,7 +20,11 @@ public class UserRepository implements Repository<User> {
 
             //System.out.println("Connexion à la base de donnée réussie !");
 
-            s.executeUpdate("insert into users values (" + obj.getUserId() + ",'" + obj.getId() + "','" + obj.getNom() + "','" + obj.getPrenom() + "','" + obj.getMail() + "','" + obj.getPassword() + "', '');");
+            String requete = "insert into users values (" + obj.getUserId() + ",'" + obj.getId() + "','" + obj.getNom() + "','" + obj.getPrenom() + "','" + obj.getMail() + "','" + obj.getPassword() + "', ''," ;
+            if (obj instanceof Admin)
+                s.executeUpdate(requete+"'true');");
+            else
+                s.executeUpdate(requete+"'false');");
 
             s.close();
             con.close();
@@ -58,12 +62,17 @@ public class UserRepository implements Repository<User> {
         try {
             Connection con = DriverManager.getConnection(url,"root","1234");
             Statement s = con.createStatement();
+            User user;
 
             //System.out.println("Connexion à la base de donnée réussie !");
 
             ResultSet rs = s.executeQuery("select * from users where username = '"+username+"';");
             rs.next();
-            User user = new User(rs.getInt(1)-1,rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
+
+            if (rs.getBoolean(8))
+                user = new Admin(rs.getInt(1)-1,rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
+            else
+                user = new User(rs.getInt(1)-1,rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
 
             s.close();
             con.close();
@@ -88,7 +97,10 @@ public class UserRepository implements Repository<User> {
             List<User> list = new ArrayList<User>();
             ResultSet rs = s.executeQuery("select * from users order by id;");
             while(rs.next()){
-                list.add(new User(rs.getInt(1)-1,rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
+                if (rs.getBoolean(8))
+                    list.add(new Admin(rs.getInt(1)-1,rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
+                else
+                    list.add(new User(rs.getInt(1)-1,rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
             }
 
             s.close();

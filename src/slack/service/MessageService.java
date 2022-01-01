@@ -1,6 +1,6 @@
 package slack.service;
 
-import slack.model.User;
+import slack.model.*;
 import slack.repository.Repository;
 import slack.repository.RepositoryFactory;
 

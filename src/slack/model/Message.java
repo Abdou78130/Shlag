@@ -4,7 +4,7 @@ public class Message implements HasId{
     private String message;
     private Channel channel;
 
-    public Message(Message message,Channel channel){
+    public Message(String message,Channel channel){
         this.message=message;
         this.channel=channel;
     }

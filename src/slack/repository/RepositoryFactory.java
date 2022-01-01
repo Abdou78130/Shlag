@@ -28,7 +28,7 @@ public class RepositoryFactory {
 
     public static Repository<Message> createMessage() {
         if (USE_DB) {
-            return new MessageService();
+            return new MessageRepository();
         }
         return new MemoryRepository<>();
     }
