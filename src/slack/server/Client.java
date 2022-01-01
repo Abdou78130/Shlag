@@ -9,10 +9,9 @@ import java.nio.BufferOverflowException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-import slack.model.Channel;
-import slack.model.Message;
-import slack.model.User;
-import slack.service.UserService;
+
+import slack.model.*;
+import slack.service.*;
 
 public class Client {
     public static void connectionServer(User u) throws IOException {
@@ -20,14 +19,14 @@ public class Client {
             BufferedReader entree = new BufferedReader(new InputStreamReader(System.in));
             BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter writer = new PrintWriter(socket.getOutputStream(),true);
-            String line=u.getUsername();
+            String line=u.getId();
             writer.println(line);
             Client.readServ(reader);
             line = null;
 
             do{
                 line=entree.readLine();
-                line = u.getUsername()+": "+line;
+                line = u.getId()+": "+line;
                 writer.println(line);
                 Client.readServ(reader);
 

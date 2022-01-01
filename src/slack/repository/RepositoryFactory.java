@@ -10,7 +10,7 @@ import slack.repository.memory.MemoryRepository;
 
 public class RepositoryFactory {
 
-    private static final boolean USE_DB = false;
+    private static final boolean USE_DB = true;
 
     public static Repository<User> createUser() {
         if (USE_DB) {
