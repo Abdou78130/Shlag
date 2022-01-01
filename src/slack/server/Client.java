@@ -5,13 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.nio.BufferOverflowException;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
-
-import slack.model.Message;
-import slack.model.User;
-import slack.service.UserService;
 
 public class Client {
     public static void main(String[] args) throws IOException {

@@ -1,9 +1,7 @@
 package slack.repository.memory;
 
 import slack.model.HasId;
-import slack.model.User;
 import slack.repository.Repository;
-import slack.service.UserService;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,23 +1,26 @@
 package slack.model;
 
+import slack.repository.db.UserRepository;
+
+import java.util.List;
+
 public class User implements HasId {
+    protected final String userId;
     protected String username;
-    protected String password;
-    private static int cpt=0;
-    protected String userId;
-    protected String mail;
     protected String nom;
     protected String prenom;
+    protected String mail;
+    protected String password;
 
-    public User(String username, String mdp, String mail, String nom, String prenom){
+    public User(int lastId, String username, String nom, String prenom, String mail, String mdp){
         this.username=username;
         this.password=mdp;
         this.mail=mail;
         this.nom=nom;
         this.prenom=prenom;
-        userId=String.valueOf(cpt);
-        cpt++;
+        this.userId = Integer.toString(lastId+1);
     }
+
     public void setPrenom(String p){
         this.prenom=p;
     }
@@ -33,8 +36,9 @@ public class User implements HasId {
     public void setUsername(String user){
         this.username=user;
     }
-    public String getUsername(){
-        return username;
+
+    public String getUserId(){
+        return userId;
     }
     public String getPassword(){
         return password;
@@ -48,6 +52,14 @@ public class User implements HasId {
     public String getMail() {
         return mail;
     }
+    public static int getLastId(List<User> list){
+        int max = 0;
+        for(User user : list){
+            if((Integer.parseInt(user.getUserId()))>max)
+                max = Integer.parseInt(user.getUserId());
+        }
+        return max;
+    }
 
     @Override
     public String getId() {
@@ -55,6 +67,6 @@ public class User implements HasId {
     }
 
     public String toString(){
-        return (username+" "+nom+" "+prenom+" "+mail+" "+userId);
+        return (userId+" - "+username+" "+nom+" "+prenom+" "+mail);
     }
 }

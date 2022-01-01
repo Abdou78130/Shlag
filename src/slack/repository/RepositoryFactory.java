@@ -1,8 +1,8 @@
 package slack.repository;
 
+import slack.model.User;
 import slack.model.Channel;
 import slack.model.Message;
-import slack.model.User;
 import slack.repository.db.ChannelRepository;
 import slack.repository.db.MessageRepository;
 import slack.repository.db.UserRepository;
