@@ -1,5 +1,6 @@
 package slack.service;
 
+import slack.model.Channel;
 import slack.model.User;
 import slack.repository.Repository;
 import slack.repository.RepositoryFactory;
@@ -19,7 +20,7 @@ public class ChannelService {
     }
 
     public void creerChannel(String name){
-        Channel channel = new channel(name);
+        Channel channel = new Channel(name);
         ChannelRepository.insert(channel);
     }
 }

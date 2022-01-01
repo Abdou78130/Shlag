@@ -17,15 +17,16 @@ public class Main {
 
         List<User> list = us.userRepository.select();
 
-      /*  User user1 = new User("abdou78","Haba","Abdallah","abdou78@gmail.com","mdp");
+        User user1 = new User(User.getLastId(us.userRepository.select()),"abdou78","Haba","Abdallah","abdou78@gmail.com","mdp");
+        /*
         User user2 = new User("saren","Mastier","Lucas","saren@gmail.com","mdp");
         User user3 = new User("veeko","Lassal","Mounir","veeko@gmail.com","mdp");
         User user4 = new User("miike","Chen","Mike","miike@gmail.com","mdp");*/
-
+/*
        for(User user : list){
             System.out.println(user);
         }
-
+*/
         /*us.userRepository.update(user1);
         us.userRepository.update(user2);
         us.userRepository.update(user3);
@@ -35,10 +36,8 @@ public class Main {
         for(User u : list){
             System.out.println(u);
         }
-
+*/
         System.out.println(us.authenticate("veeko","mdp"));
-
-        Server.runServer();*/
 
     }
 }
