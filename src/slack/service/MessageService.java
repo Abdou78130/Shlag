@@ -8,8 +8,8 @@ public class MessageService {
 
     public final Repository<Message> MessageRepository = RepositoryFactory.createMessage();
 
-    public Message creerMessage(String mess, Channel channel){      
-        Message message = new Message(mess,channel);
+    public Message creerMessage(String mess, Channel channel,User user){
+        Message message = new Message(mess,channel,user);
         MessageRepository.insert(message);
         return message;
     }
