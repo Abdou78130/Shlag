@@ -6,6 +6,12 @@ public class Channel implements HasId{
     private String name;
     private MessageRepository messages;
 
+    public Channel(String name){
+        this.name=name;
+    }
+    public String getName(){
+        return name;
+    }
     @Override
     public String getId() {
         return name;
