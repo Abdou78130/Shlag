@@ -4,31 +4,18 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import slack.model.Message;
-import slack.model.User;
 import slack.service.MessageService;
 import slack.service.UserService;
 
 import java.io.IOException;
-import java.util.List;
 
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        //Partie code
-
-        User u = UserService.inscription("saren", "mdp", "saren@gmail.com", "Mastier", "Lucas");
-        User u2 = UserService.inscription("abdou78", "mdp", "abdou78@gmail.com", "Haba", "Abdallah");
-
-        List<User> list = UserService.userRepository.select();
-        List<Message> list_mess = MessageService.messageRepository.select();
+        UserService us = new UserService();
+        MessageService ms = new MessageService();
 
 
-
-
-
-
-        //Partie IHM
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("SignUp.fxml"));
 
         //fxmlLoader.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
