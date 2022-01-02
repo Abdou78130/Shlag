@@ -13,51 +13,59 @@ public class User implements HasId {
     protected String mail;
     protected String password;
 
-    public User(int lastId, String username, String nom, String prenom, String mail, String mdp){
-        this.username=username;
-        this.password=mdp;
-        this.mail=mail;
-        this.nom=nom;
-        this.prenom=prenom;
-        this.userId = lastId+1;
+    public User(int lastId, String username, String nom, String prenom, String mail, String mdp) {
+        this.username = username;
+        this.password = mdp;
+        this.mail = mail;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.userId = lastId + 1;
     }
 
-    public void setPrenom(String p){
-        this.prenom=p;
-    }
-    public void setNom(String n){
-        this.nom=n;
-    }
-    public void setMail(String m){
-        this.mail=m;
-    }
-    public void setPassword(String m){
-        this.password=m;
-    }
-    public void setUsername(String user){
-        this.username=user;
+    public void setPrenom(String p) {
+        this.prenom = p;
     }
 
-    public int getUserId(){
+    public void setNom(String n) {
+        this.nom = n;
+    }
+
+    public void setMail(String m) {
+        this.mail = m;
+    }
+
+    public void setPassword(String m) {
+        this.password = m;
+    }
+
+    public void setUsername(String user) {
+        this.username = user;
+    }
+
+    public int getUserId() {
         return userId;
     }
-    public String getPassword(){
+
+    public String getPassword() {
         return password;
     }
-    public String getPrenom(){
+
+    public String getPrenom() {
         return prenom;
     }
-    public String getNom(){
+
+    public String getNom() {
         return nom;
     }
+
     public String getMail() {
         return mail;
     }
     public String getUsername(){ return username;}
     public static int getLastId(@NotNull List<User> list){
         int max = 0;
-        for(User user : list){
-            if((user.getUserId())>max)
+        for (User user : list) {
+            if ((user.getUserId()) > max)
                 max = user.getUserId();
         }
         return max;
@@ -68,7 +76,7 @@ public class User implements HasId {
         return username;
     }
 
-    public String toString(){
-        return (userId+" - "+username+" "+nom+" "+prenom+" "+mail);
+    public String toString() {
+        return (userId + " - " + username + " " + nom + " " + prenom + " " + mail);
     }
 }

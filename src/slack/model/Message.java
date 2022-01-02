@@ -65,5 +65,12 @@ public class Message implements HasId{
     }
 
 
-    
+    public User getUser() {
+        return user;
+    }
+
+    public Channel getChannel() {
+        return channel;
+    }
+
 }
