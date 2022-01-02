@@ -5,10 +5,7 @@ import slack.model.Channel;
 import slack.model.User;
 import slack.repository.Repository;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +28,9 @@ public class ChannelRepository implements Repository<Channel> {
             con.close();
 
             return obj;
+        }catch (SQLIntegrityConstraintViolationException e) {
+            System.out.println("Cette id existe deja !");
+            return null;
         }
         catch(Exception e){
             System.out.println("Erreur lors de l'ajout à la table Channel !");
@@ -47,7 +47,8 @@ public class ChannelRepository implements Repository<Channel> {
 
             //System.out.println("Connexion à la base de donnée réussie !");
 
-            s.executeUpdate("delete from channels where nom = '"+obj.getId()+"';");
+            if(s.executeUpdate("delete from channels where nom = '"+obj.getId()+"';")==0)
+                System.out.println("delete : Ce channel n'existe pas !");
 
             s.close();
             con.close();
@@ -70,20 +71,21 @@ public class ChannelRepository implements Repository<Channel> {
             //System.out.println("Connexion à la base de donnée réussie !");
 
             ResultSet rs = s.executeQuery("select * from channels where nom = '"+id+"';");
-            if(rs.next())
-                if(rs.getString(2) == ""){
+            if(rs.next()) {
+                if (rs.getString(2) == "") {
                     users = ",";
-                }
-                else{
+                } else {
                     users = rs.getString(2);
                 }
-                if(rs.getString(3) == ""){
+                if (rs.getString(3) == "") {
                     messages = ",";
-                }
-                else{
+                } else {
                     messages = rs.getString(3);
                 }
-                channel = new Channel(id,users,messages);
+                channel = new Channel(id, users, messages);
+            }
+            else
+                System.out.println("select : Le channel"+id+" n'existe pas !");
 
             s.close();
             con.close();
@@ -110,21 +112,24 @@ public class ChannelRepository implements Repository<Channel> {
             String users = "";
             String messages = "";
 
-            while(rs.next()){
-                if(rs.getString(2) == ""){
-                    users = ",";
+            if(rs.next()){
+                do {
+                    if (rs.getString(2) == "") {
+                        users = ",";
+                    } else {
+                        users = rs.getString(2);
+                    }
+                    if (rs.getString(3) == "") {
+                        messages = ",";
+                    } else {
+                        messages = rs.getString(3);
+                    }
+                    list.add(new Channel(rs.getString(1), users, messages));
                 }
-                else{
-                    users = rs.getString(2);
-                }
-                if(rs.getString(3) == ""){
-                    messages = ",";
-                }
-                else{
-                    messages = rs.getString(3);
-                }
-                list.add(new Channel(rs.getString(1),users,messages));
+                while(rs.next());
             }
+            else
+                System.out.println("select : Aucun channel n'a été créé !");
 
             s.close();
             con.close();
@@ -144,10 +149,12 @@ public class ChannelRepository implements Repository<Channel> {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/shlag_db?useSSL=false","root","1234");
             Statement s = con.createStatement();
 
+
             //System.out.println("Connexion à la base de donnée réussie !");
 
 
-            s.executeUpdate( "update channels set nom = '"+obj.getId()+"', users = '"+obj.getUsers()+"', messages = '"+obj.getMessages()+"' where nom = '"+obj.getId()+"';");
+            if(s.executeUpdate( "update channels set nom = '"+obj.getId()+"', users = '"+obj.getUsers()+"', messages = '"+obj.getMessages()+"' where nom = '"+obj.getId()+"';")==0)
+                System.out.println("upadte : Ce channel n'existe pas !");
 
             s.close();
             con.close();
@@ -156,6 +163,7 @@ public class ChannelRepository implements Repository<Channel> {
         }
         catch(Exception e){
             System.out.println("Erreur lors de la mise a jour de "+obj.getId());
+            e.printStackTrace();
             return null;
         }
     }

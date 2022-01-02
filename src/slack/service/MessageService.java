@@ -7,20 +7,16 @@ import slack.repository.Repository;
 import slack.repository.RepositoryFactory;
 import slack.repository.db.UserRepository;
 
+import java.util.ArrayList;
+
 public class MessageService {
 
     public static final Repository<Message> messageRepository = RepositoryFactory.createMessage();
     private static List<Message> list = messageRepository.select();
 
-    public static Message creerMessage(String mess, Channel channel, User user) { /**
-                                                                                   * Permet la création d'un message
-                                                                                   * contenant
-                                                                                   * le user qui l'crit, le channel dans
-                                                                                   * lequel
-                                                                                   * il l'écrit et le contenu du message
-                                                                                   **/
-        Message message = new Message(mess, channel, user);
-        list.add(messageRepository.insert(message));
+    public Message creerMessage(String mess, String channel,String username){
+        Message message = new Message(Message.getLastId(new ArrayList<Message>()),mess,channel,username);
+        MessageRepository.insert(message);
         return message;
     }
 

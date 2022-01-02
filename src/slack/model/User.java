@@ -1,5 +1,6 @@
 package slack.model;
 
+import org.jetbrains.annotations.NotNull;
 import slack.repository.db.UserRepository;
 
 import java.util.List;
@@ -60,12 +61,8 @@ public class User implements HasId {
     public String getMail() {
         return mail;
     }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public static int getLastId(List<User> list) {
+    public String getUsername(){ return username;}
+    public static int getLastId(@NotNull List<User> list){
         int max = 0;
         for (User user : list) {
             if ((user.getUserId()) > max)
