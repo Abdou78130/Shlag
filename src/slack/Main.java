@@ -16,13 +16,13 @@ public class Main {
         UserService us = new UserService();
         MessageService ms = new MessageService();
 
-        User u=us.inscription("saren", "mdp", "saren@gmail.com", "Mastier", "Lucas");
-        User u2=us.inscription("abdou78","mdp","abdou78@gmail.com","Haba","Abdallah");
-        List<User> list = us.userRepository.select();
-        List<Message> list_mess =ms.MessageRepository.select();
+        User u = UserService.inscription("saren", "mdp", "saren@gmail.com", "Mastier", "Lucas");
+        User u2 = UserService.inscription("abdou78", "mdp", "abdou78@gmail.com", "Haba", "Abdallah");
+        List<User> list = UserService.userRepository.select();
+        List<Message> list_mess = MessageService.messageRepository.select();
 
-        if(us.authenticate(u.getId(),u.getPassword())) {
-            Client.connectionServer(us.userRepository.select(u.getId()));
+        if (UserService.authenticate(u.getId(), u.getPassword())) {
+            Client.connectionServer(UserService.userRepository.select(u.getId()));
         }
     }
 }
