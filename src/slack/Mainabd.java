@@ -13,34 +13,35 @@ import java.io.IOException;
 
 public class Mainabd {
     public static void main(String[] args) throws IOException {
-        /*UserService us = new UserService();
+        /*
+         * UserService us = new UserService();
+         * 
+         * List<User> list = us.userRepository.select();
+         * 
+         * 
+         * User user1 = new
+         * User(0,"abdou78","Haba","Abdallah","abdou78@gmail.com","mdp");
+         * User user2 = new User(1,"saren","Mastier","Lucas","saren@gmail.com","mdp");
+         * User user3 = new User(2,"veeko","Lassal","Mounir","veeko@gmail.com","mdp");
+         * User user4 = new User(3,"miike","Chen","Mike","miike@gmail.com","mdp");
+         * 
+         * us.userRepository.insert(user1);
+         * us.userRepository.insert(user2);
+         * us.userRepository.insert(user3);
+         * us.userRepository.insert(user4);
+         */
 
-        List<User> list = us.userRepository.select();
+        List<Channel> list = ChannelService.channelRepository.select();
 
+        Channel chan1 = new Channel("chan1", "2,7", "5");
+        Channel chan2 = new Channel("chan2", "", "");
+        Channel chan3 = new Channel("chan3", "", "");
 
-        User user1 = new User(0,"abdou78","Haba","Abdallah","abdou78@gmail.com","mdp");
-        User user2 = new User(1,"saren","Mastier","Lucas","saren@gmail.com","mdp");
-        User user3 = new User(2,"veeko","Lassal","Mounir","veeko@gmail.com","mdp");
-        User user4 = new User(3,"miike","Chen","Mike","miike@gmail.com","mdp");
-
-        us.userRepository.insert(user1);
-        us.userRepository.insert(user2);
-        us.userRepository.insert(user3);
-        us.userRepository.insert(user4);
-*/
-        ChannelService cs = new ChannelService();
-
-        List<Channel> list = cs.channelRepository.select();
-
-        Channel chan1 = new Channel("chan1","2,7","5");
-        Channel chan2 = new Channel("chan2","","");
-        Channel chan3 = new Channel("chan3","","");
-
-
-
-        cs.channelRepository.update(chan1);
-        /*cs.channelRepository.insert(chan2);
-        cs.channelRepository.insert(chan3);*/
+        ChannelService.channelRepository.update(chan1);
+        /*
+         * cs.channelRepository.insert(chan2);
+         * cs.channelRepository.insert(chan3);
+         */
 
     }
 }
