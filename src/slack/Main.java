@@ -1,14 +1,5 @@
 package slack;
 
-import java.sql.*;
-import slack.model.*;
-import slack.server.*;
-import slack.service.*;
-import slack.repository.*;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import java.io.IOException;
 
 public class Main {
