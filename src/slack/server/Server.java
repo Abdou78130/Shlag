@@ -16,7 +16,7 @@ public class Server {
         ExecutorService pool = Executors.newCachedThreadPool();
         ChannelService cs= new ChannelService();
         cs.creerChannel("#general");
-        Channel general = cs.ChannelRepository.select("#general");
+        Channel general = cs.channelRepository.select("#general");
         MessageService ms= new MessageService();
         System.out.println("Creating a server on port 1236");
         try(ServerSocket serverSocket = new ServerSocket(1236)) {
