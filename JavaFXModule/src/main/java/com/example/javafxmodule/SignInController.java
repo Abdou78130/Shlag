@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import slack.server.Client;
+import slack.service.UserService;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -29,6 +31,12 @@ public class SignInController {
 
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void signIn(ActionEvent event){
+        if (UserService.authenticate(idInput.getText(), passwordInput.getText())) {
+            Client.connectionServer(UserService.userRepository.select(u.getId()));
+        }
     }
 
 }
