@@ -1,6 +1,13 @@
 package slack;
 
+import slack.model.Message;
+import slack.model.User;
+import slack.server.Client;
+import slack.service.MessageService;
+import slack.service.UserService;
+
 import java.io.IOException;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
