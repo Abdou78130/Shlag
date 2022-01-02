@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JavaFXModule/JavaFXModule.iml" filepath="$PROJECT_DIR$/JavaFXModule/JavaFXModule.iml" />
       <module fileurl="file://$PROJECT_DIR$/Shlag.iml" filepath="$PROJECT_DIR$/Shlag.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/slack/slack.iml" filepath="$PROJECT_DIR$/src/slack/slack.iml" />
     </modules>
   </component>
 </project>
