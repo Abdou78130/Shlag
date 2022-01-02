@@ -35,9 +35,12 @@
        <RowConstraints maxHeight="251.0" minHeight="0.0" prefHeight="45.0" vgrow="SOMETIMES" />
          <RowConstraints maxHeight="272.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
          <RowConstraints maxHeight="272.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
-         <RowConstraints fillHeight="false" maxHeight="339.0" minHeight="10.0" prefHeight="123.0" />
-         <RowConstraints fillHeight="false" maxHeight="272.0" minHeight="0.0" prefHeight="0.0" />
-         <RowConstraints fillHeight="false" maxHeight="272.0" minHeight="10.0" prefHeight="115.0" />
+         <RowConstraints maxHeight="272.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="272.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="272.0" minHeight="10.0" prefHeight="99.0" vgrow="SOMETIMES" />
+         <RowConstraints fillHeight="false" maxHeight="339.0" minHeight="10.0" prefHeight="45.0" />
+         <RowConstraints fillHeight="false" maxHeight="272.0" minHeight="0.0" prefHeight="89.0" />
+         <RowConstraints fillHeight="false" maxHeight="272.0" minHeight="9.0" prefHeight="9.0" />
      </rowConstraints>
       <children>
          <TextField fx:id="idInput" promptText="grosshlag@gmail.com" styleClass="inputs" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -59,7 +62,7 @@
                <Font name="Lato Light" size="20.0" />
             </font>
          </Label>
-          <Button fx:id="buttonTest" alignment="CENTER" contentDisplay="CENTER" onAction="#pressButton" prefHeight="49.0" prefWidth="230.0" styleClass="title" text="S'inscrire" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+          <Button fx:id="buttonTest" alignment="CENTER" contentDisplay="CENTER" onAction="#pressButton" prefHeight="49.0" prefWidth="230.0" styleClass="title" text="S'inscrire" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
             <font>
                <Font name="Lato Regular" size="14.0" />
             </font>
@@ -70,11 +73,21 @@
                <Cursor fx:constant="HAND" />
             </cursor>
          </Button>
-         <Hyperlink alignment="BOTTOM_CENTER" contentDisplay="CENTER" onAction="#switchToSignIn" prefHeight="38.0" prefWidth="817.0" style="-fx-font-size: 18; -fx-border-color: transparent;" text="Je suis déjà inscrit" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+         <Hyperlink alignment="BOTTOM_CENTER" contentDisplay="CENTER" onAction="#switchToSignIn" prefHeight="38.0" prefWidth="817.0" style="-fx-font-size: 18; -fx-border-color: transparent;" text="Je suis déjà inscrit" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER">
             <font>
                <Font size="9.0" />
             </font>
          </Hyperlink>
+         <TextField fx:id="idInput1" promptText="shlagito" styleClass="inputs" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <effect>
+               <Bloom />
+            </effect>
+         </TextField>
+         <Label alignment="BOTTOM_LEFT" prefHeight="58.0" prefWidth="659.0" text="Pseudo" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <font>
+               <Font name="Lato Light" size="20.0" />
+            </font>
+         </Label>
       </children>
    </GridPane>
    <stylesheets>
