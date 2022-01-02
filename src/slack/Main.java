@@ -17,7 +17,7 @@ public class Main {
         List<User> list = UserService.userRepository.select();
         List<Message> list_mess = MessageService.messageRepository.select();
 
-        if (UserService.authenticate(u.getId(), u.getPassword())) {
+        if (UserService.authenticate(u.getId(), u.getPassword())!=null) {
             Client.connectionServer(UserService.userRepository.select(u.getId()));
         }
     }
