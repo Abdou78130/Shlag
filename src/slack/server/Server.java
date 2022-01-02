@@ -24,7 +24,6 @@ public class Server {
                 pool.submit(() -> {
                     BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
-
                     String ligne = reader.readLine();
                     String reponse = ligne + " s'est connecté au Channel : " + general.getId() + " !";
                     writer.println(reponse);

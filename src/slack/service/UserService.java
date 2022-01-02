@@ -49,11 +49,11 @@ public class UserService {
         return user;
     }
 
-    public User getCurrentUser() {
+    public static User getCurrentUser() {
         return currentuser;
     }
 
-    public List<User> getList() {
+    public static List<User> getList() {
         return list;
     }
 
