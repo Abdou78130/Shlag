@@ -16,7 +16,7 @@ public class Message implements HasId {
     public String randomString() {
         String str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "abcdefghijklmnopqrstuvwxyz" + "0123456789";
         StringBuilder s = new StringBuilder(10);
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < 10; i++) {
             int index = (int) (str.length() * Math.random());
             s.append(str.charAt(index));
         }
