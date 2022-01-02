@@ -33,5 +33,6 @@ public class RepositoryFactory {
         return new MemoryRepository<>();
     }
 
-    private RepositoryFactory() {}
+    private RepositoryFactory() {
+    }
 }

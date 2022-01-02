@@ -1,22 +1,47 @@
 package slack.model;
 
-public class Message implements HasId{
+public class Message implements HasId {
     private String message;
     private Channel channel;
     private User user;
+    private String messageId;
 
-    public Message(String message,Channel channel,User user){
-        this.message=message;
-        this.channel=channel;
-        this.user=user;
+    public Message(String message, Channel channel, User user) {
+        this.message = message;
+        this.channel = channel;
+        this.user = user;
+        this.messageId = randomString();
     }
-    // faut une valeur ici, un message peut etre ecrit plusieurs fois donc c'est pas un id
-    @Override
-    public String getId() { return message; }
 
-    public String getMessage(){
+    public String randomString() {
+        String str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "abcdefghijklmnopqrstuvwxyz" + "0123456789";
+        StringBuilder s = new StringBuilder(10);
+        for (int i = 0; i < n; i++) {
+            int index = (int) (str.length() * Math.random());
+            s.append(str.charAt(index));
+        }
+        return s.toString();
+    }
+
+    @Override
+    public String getId() {
+        return messageId;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
         return message;
     }
 
-    
+    public User getUser() {
+        return user;
+    }
+
+    public Channel getChannel() {
+        return channel;
+    }
+
 }
