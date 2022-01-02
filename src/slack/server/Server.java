@@ -40,7 +40,7 @@ public class Server {
                         ligne = reader.readLine();
                         reponse = ligne;
 /*
-                        chan=ligne.substring(7);
+                        chan=ligne.substring(7); //On obtient le nom du channel
                         if(("/join "+ChannelService.channelRepository.select(chan)).equals(reponse)){
                             general=ChannelService.channelRepository.select(chan);
                             System.out.println(chan);
