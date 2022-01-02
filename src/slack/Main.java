@@ -1,18 +1,10 @@
 package slack;
 
-import java.sql.*;
-import slack.model.*;
-import slack.server.*;
-import slack.service.*;
-import slack.repository.*;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        /*
         UserService us = new UserService();
         MessageService ms = new MessageService();
 
@@ -23,6 +15,6 @@ public class Main {
 
         if (UserService.authenticate(u.getId(), u.getPassword())) {
             Client.connectionServer(UserService.userRepository.select(u.getId()));
-        }
+        }*/
     }
 }
