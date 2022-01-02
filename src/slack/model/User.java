@@ -5,7 +5,7 @@ import slack.repository.db.UserRepository;
 import java.util.List;
 
 public class User implements HasId {
-    protected final String userId;
+    protected final int userId;
     protected String username;
     protected String nom;
     protected String prenom;
@@ -18,7 +18,7 @@ public class User implements HasId {
         this.mail=mail;
         this.nom=nom;
         this.prenom=prenom;
-        this.userId = Integer.toString(lastId+1);
+        this.userId = lastId+1;
     }
 
     public void setPrenom(String p){
@@ -37,7 +37,7 @@ public class User implements HasId {
         this.username=user;
     }
 
-    public String getUserId(){
+    public int getUserId(){
         return userId;
     }
     public String getPassword(){
@@ -56,8 +56,8 @@ public class User implements HasId {
     public static int getLastId(List<User> list){
         int max = 0;
         for(User user : list){
-            if((Integer.parseInt(user.getUserId()))>max)
-                max = Integer.parseInt(user.getUserId());
+            if((user.getUserId())>max)
+                max = user.getUserId();
         }
         return max;
     }

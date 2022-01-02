@@ -61,18 +61,19 @@ public class UserRepository implements Repository<User> {
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/shlag_db?useSSL=false","root","1234");
             Statement s = con.createStatement();
-            User user;
+            User user = null;
 
             //System.out.println("Connexion à la base de donnée réussie !");
 
             ResultSet rs = s.executeQuery("select * from users where username = '"+username+"';");
-            rs.next();
+            if(rs.next()) {
 
-            if (rs.getBoolean(8))
-                user = new Admin(rs.getInt(1)-1,rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
-            else
-                user = new User(rs.getInt(1)-1,rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
-
+                if (rs.getBoolean(8))
+                    user = new Admin(rs.getInt(1) - 1, rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+                else
+                    user = new User(rs.getInt(1) - 1, rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+            }
+            
             s.close();
             con.close();
 
@@ -122,8 +123,8 @@ public class UserRepository implements Repository<User> {
 
             //System.out.println("Connexion à la base de donnée réussie !");
 
-
             String requete = "update users set username = '"+obj.getId()+"', nom = '"+obj.getNom()+"', prenom = '"+obj.getPrenom()+"', mail = '"+obj.getMail()+"', password = '"+obj.getPassword()+"'";
+
             if(obj instanceof Admin)
                 s.executeUpdate(requete+", isAdmin = 1 where username = '"+obj.getId()+"'");
             else

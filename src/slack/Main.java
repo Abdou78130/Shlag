@@ -14,10 +14,9 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
         UserService us = new UserService();
-
+        User u=us.inscription("saren", "mdp", "saren@gmail.com", "Mastier", "Lucas");
         List<User> list = us.userRepository.select();
 
-        User u=us.inscription("saren", "mdp", "saren@gmail.com", "Mastier", "Lucas");
 /*
         User user1 = new User(User.getLastId(us.userRepository.select()),"abdou78","Haba","Abdallah","abdou78@gmail.com","mdp");
         User user2 = new User("saren","Mastier","Lucas","saren@gmail.com","mdp");
@@ -38,8 +37,5 @@ public class Main {
             System.out.println(u);
         }
 */
-        if(us.authenticate("saren","mdp")){
-            Client.connectionServer(u);
-        }
     }
 }
