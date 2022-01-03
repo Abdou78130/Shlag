@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import slack.service.UserService;
@@ -31,6 +32,11 @@ public class SignUpController {
 
     @FXML
     private TextField firstNameInput;
+
+    @FXML
+    private TextArea warningArea;
+
+    private boolean warningIsDisplayed = false;
 
     @FXML
     protected void onHelloButtonClick() {
@@ -66,16 +72,25 @@ public class SignUpController {
         String name = nameInput.getText();
         String firstName = firstNameInput.getText();
 
-        UserService.inscription(username, password, email, name, firstName);
 
 
-        FXMLLoader fxmlLoader = new FXMLLoader(SignUpController.class.getResource("SignIn.fxml"));
-        //Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(),1920,1080);
+        if(email != "" && password != "" && username != "" && name != "" && firstName != ""){
+            //Si aucun champ n'est vide on inscris l'utilisateur
+            UserService.inscription(username, password, email, name, firstName);
 
-        stage.setScene(scene);
-        stage.show();
+            //On le renvoie ensuite à la page de connexion pour qu'il s'authentifie
+            FXMLLoader fxmlLoader = new FXMLLoader(SignUpController.class.getResource("SignIn.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(fxmlLoader.load(),1920,1080);
+
+            stage.setScene(scene);
+            stage.show();
+
+        } else if(warningIsDisplayed == false) {
+            warningArea.appendText("Veuillez remplir tout les champs");
+            warningIsDisplayed = true;
+        }
 
     }
 
