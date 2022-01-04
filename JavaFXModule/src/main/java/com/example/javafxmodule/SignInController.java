@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import slack.model.Admin;
 import slack.model.User;
 import slack.service.UserService;
 
@@ -37,10 +38,12 @@ public class SignInController {
         //On connecte le user si ses informations correspondent a un user dans la base
         User user = UserService.authenticate(idInput.getText(), passwordInput.getText());
         if (user != null) {
+            //Client.connectionServer(UserService.userRepository.select(user.getId()));
+
 
             //On affiche un menu différent en fonction de son role (admin ou non admin)
             Parent root;
-            if(user.getAdmin()) {
+            if(user instanceof Admin) {
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AdminMenu.fxml")));
             } else {
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Menu.fxml")));

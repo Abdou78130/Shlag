@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 
-
 <VBox prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxmodule.ChannelsListController">
    <children>
       <AnchorPane prefHeight="1241.0" prefWidth="1920.0" styleClass="background" stylesheets="@application.css">
@@ -18,12 +17,13 @@
                   <Reflection />
                </effect>
             </Label>
-            <TilePane fx:id="listChannel" layoutX="121.0" layoutY="175.0" prefHeight="728.0" prefWidth="1617.0" />
+            <TilePane fx:id="listChannelPane" layoutX="121.0" layoutY="175.0" prefHeight="728.0" prefWidth="1617.0" />
             <Button fx:id="backButton" layoutX="76.0" layoutY="39.0" mnemonicParsing="false" onAction="#switchToMenu" text="&lt;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <Button layoutX="829.0" layoutY="154.0" mnemonicParsing="false" onAction="#addChannelToList" text="Voir la liste des channels" />
          </children>
       </AnchorPane>
    </children>
