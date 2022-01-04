@@ -14,9 +14,9 @@ public class MessageService {
     public static final Repository<Message> messageRepository = RepositoryFactory.createMessage();
     private static List<Message> list = messageRepository.select();
 
-    public Message creerMessage(String mess, String channel,String username){
-        Message message = new Message(Message.getLastId(new ArrayList<Message>()),mess,channel,username);
-        MessageRepository.insert(message);
+    public Message creerMessage(String mess, String channel, String username) {
+        Message message = new Message(Message.getLastId(new ArrayList<Message>()), mess, channel, username);
+        messageRepository.insert(message);
         return message;
     }
 

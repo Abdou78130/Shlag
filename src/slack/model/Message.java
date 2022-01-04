@@ -2,6 +2,9 @@ package slack.model;
 
 import org.jetbrains.annotations.NotNull;
 
+import slack.service.ChannelService;
+import slack.service.UserService;
+
 import java.util.List;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -48,6 +51,10 @@ public class Message implements HasId {
         return message;
     }
 
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
     public String getTime() {
         return time;
     }
@@ -71,11 +78,11 @@ public class Message implements HasId {
     }
 
     public User getUser() {
-        return user;
+        return UserService.userRepository.select(username);
     }
 
     public Channel getChannel() {
-        return channel;
+        return ChannelService.channelRepository.select(channel);
     }
 
 }
