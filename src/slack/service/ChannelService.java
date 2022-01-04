@@ -25,12 +25,10 @@ public class ChannelService {
         return currentchannel;
     }
 
-
     public static void modifierChannel(String name) {
         if (UserService.getCurrentUser().getAdmin()) {
-            Channel channel = channelRepository.select(name);
-            channel.setNom(name);
-            channelRepository.update(channel);
+            currentchannel.setNom(name);
+            channelRepository.update(currentchannel);
             System.out.print("Channel rennomé avec succès");
         } else {
             System.out.print("Impossible de renommé , vous n'êtes pas admin");
@@ -44,7 +42,7 @@ public class ChannelService {
         list.add(channelRepository.insert(channel));
     }
 
-    public static List<Channel> getList(){
+    public static List<Channel> getList() {
         return list;
     }
 
