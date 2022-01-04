@@ -29,19 +29,31 @@ public class Mainabd {
          * us.userRepository.insert(user2);
          * us.userRepository.insert(user3);
          * us.userRepository.insert(user4);
-         */
-
-        List<Channel> list = ChannelService.channelRepository.select();
-
-        Channel chan1 = new Channel("chan1", "2,7", "5");
-        Channel chan2 = new Channel("chan2", "", "");
-        Channel chan3 = new Channel("chan3", "", "");
-
-        ChannelService.channelRepository.update(chan1);
-        /*
-         * cs.channelRepository.insert(chan2);
+         * 
+         * ChannelService cs = new ChannelService();
+         * 
+         * List<Channel> list = cs.channelRepository.select();
+         * 
+         * Channel chan1 = new Channel("chan1","2,7","5");
+         * Channel chan2 = new Channel("chan2","","");
+         * Channel chan3 = new Channel("chan3","","");
+         * 
+         * 
+         * 
+         * cs.channelRepository.update(chan1);
+         * /*cs.channelRepository.insert(chan2);
          * cs.channelRepository.insert(chan3);
          */
+
+        Message mess1 = new Message(0, "Hello world !", "#general", "veeko");
+        Message mess2 = new Message(1, "I sleep !", "#general", "saren");
+        Message mess3 = new Message(2, "We''re dead !", "#project", "miike");
+        Message mess4 = new Message(3, "pfff...", "#general", "abdou78");
+
+        // ms.MessageRepository.delete(mess1);
+        // ms.MessageRepository.delete(mess1);
+        // ms.MessageRepository.update(mess1);
+        MessageService.messageRepository.update(mess1);
 
     }
 }
