@@ -43,7 +43,4 @@ public class Server {
             pool.shutdown();
         }
     }
-    public static void connectionAccept(){
-
-    }
 }
