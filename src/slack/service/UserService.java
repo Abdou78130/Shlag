@@ -45,7 +45,8 @@ public class UserService {
                                                                                                            * donnée
                                                                                                            **/
         User user = new User(User.getLastId(userRepository.select()), username, nom, prenom, mail, mdp);
-        list.add(userRepository.insert(user));
+        userRepository.insert(user);
+        list.add(user);
         return user;
     }
 

@@ -21,6 +21,7 @@ public class MessageService {
                                                                                    **/
         Message message = new Message(mess, channel, user);
         list.add(messageRepository.insert(message));
+        messageRepository.insert(message);
         return message;
     }
 
@@ -32,6 +33,7 @@ public class MessageService {
 
     public static Message modifierMessage(String mess, String messageId) {
         Message message = messageRepository.select(messageId);
+        messageRepository.insert(message);
         message.setMessage(mess);
         return message;
     }
