@@ -33,19 +33,18 @@ public class Client {
                 line=entree.readLine();
                 line = u.getId()+": "+line;
                 writer.println(line);
-                Client.readServ(reader,cur_us,cur_chan);
-
+                Client.readServ(reader,cur_us);
             }while(line!=null);
         }
     }
-    private static void readServ(BufferedReader reader, User cur_u, Channel cur_c){
+    private static void readServ(BufferedReader reader, User cur_u){
         try {
             String reponse = reader.readLine();
 
             // join channel PROBLEME
             String[] substr = reponse.split(" ");
-            String cmd = null;
-            String chan = null;
+            String cmd = "";
+            String chan = "";
             if (substr.length > 2) {
                 cmd = substr[1];
                 chan = substr[2];
@@ -69,7 +68,6 @@ public class Client {
                     System.out.println("Vous n'avez pas les droits nécessaire pour cette commande");
                 }
             }
-
             // DELETE channel pas test en tant que admin
             if(cmd.equals("/delete")) {
                 if (cmd.equals("/delete")) {
