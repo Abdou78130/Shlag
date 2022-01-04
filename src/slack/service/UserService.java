@@ -1,10 +1,10 @@
 package slack.service;
 
-import java.util.List;
-
 import slack.model.User;
 import slack.repository.Repository;
 import slack.repository.RepositoryFactory;
+
+import java.util.List;
 
 public class UserService {
 
@@ -13,11 +13,11 @@ public class UserService {
     private static User currentuser = null;
 
     public static User authenticate(String username, String password) { /**
-                                                                         * Fonction permettant a un utilisateur de se
-                                                                         * connecter en rentrant un username et le
-                                                                         * mot de
-                                                                         * passe associé
-                                                                         **/
+     * Fonction permettant a un utilisateur de se
+     * connecter en rentrant un username et le
+     * mot de
+     * passe associé
+     **/
         User user = userRepository.select(username);
         if (user == null) {
             System.out.println("ERREUR : Le pseudo entré n'existe pas");

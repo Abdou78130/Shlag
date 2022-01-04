@@ -82,6 +82,7 @@ public class Client {
             e.printStackTrace();
         }
     }
+
 }
 /*
 for (User u: UserService.userRepository.select()) {

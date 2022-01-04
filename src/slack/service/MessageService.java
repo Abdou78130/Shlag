@@ -19,7 +19,7 @@ public class MessageService {
                                                                                    * lequel
                                                                                    * il l'écrit et le contenu du message
                                                                                    **/
-        Message message = new Message(mess, channel, user);
+        Message message = new Message(Message.getLastId(messageRepository.select()),mess, channel.getId(), user.getId());
         list.add(messageRepository.insert(message));
         messageRepository.insert(message);
         return message;

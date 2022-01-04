@@ -9,7 +9,7 @@ import java.util.List;
 
 public class UserRepository implements Repository<User> {
 
-// User_db = Id/username/nom/prenom/mail/password/ChannelIdList
+// User_db = Id/username/nom/prenom/mail/password/ChannelIdList/isAdmin
 
     @Override
     public User insert(User obj) {
@@ -29,6 +29,9 @@ public class UserRepository implements Repository<User> {
             con.close();
 
             return obj;
+        }catch (SQLIntegrityConstraintViolationException e) {
+            System.out.println("Cette id existe deja !");
+            return null;
         }
         catch(Exception e){
             System.out.println("Erreur lors de l'ajout à la table User !");
@@ -45,7 +48,8 @@ public class UserRepository implements Repository<User> {
 
             //System.out.println("Connexion à la base de donnée réussie !");
 
-            s.executeUpdate("delete from users where id = "+obj.getUserId()+";");
+            if(s.executeUpdate("delete from users where id = "+obj.getUserId()+";")==0)
+                System.out.println("delete : Ce user n'existe pas !");
 
             s.close();
             con.close();
@@ -73,6 +77,8 @@ public class UserRepository implements Repository<User> {
                 else
                     user = new User(rs.getInt(1) - 1, rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
             }
+            else
+                System.out.println("select : "+username+" n'existe pas !");
             
             s.close();
             con.close();
@@ -96,12 +102,16 @@ public class UserRepository implements Repository<User> {
 
             List<User> list = new ArrayList<User>();
             ResultSet rs = s.executeQuery("select * from users order by id;");
-            while(rs.next()){
-                if (rs.getBoolean(8))
-                    list.add(new Admin(rs.getInt(1)-1,rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
-                else
-                    list.add(new User(rs.getInt(1)-1,rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
+            if(rs.next()){
+                do{
+                    if (rs.getBoolean(8))
+                        list.add(new Admin(rs.getInt(1)-1,rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
+                    else
+                        list.add(new User(rs.getInt(1)-1,rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
+                }while(rs.next());
             }
+            else
+                System.out.println("select : Il n'y a aucun User !");
 
             s.close();
             con.close();
@@ -120,15 +130,20 @@ public class UserRepository implements Repository<User> {
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/shlag_db?useSSL=false","root","1234");
             Statement s = con.createStatement();
+            int res;
 
             //System.out.println("Connexion à la base de donnée réussie !");
 
             String requete = "update users set username = '"+obj.getId()+"', nom = '"+obj.getNom()+"', prenom = '"+obj.getPrenom()+"', mail = '"+obj.getMail()+"', password = '"+obj.getPassword()+"'";
 
             if(obj instanceof Admin)
-                s.executeUpdate(requete+", isAdmin = 1 where username = '"+obj.getId()+"'");
+                res = s.executeUpdate(requete+", isAdmin = 1 where username = '"+obj.getId()+"'");
             else
-                s.executeUpdate(requete+", isAdmin = 0 where username = '"+obj.getId()+"'");
+                res = s.executeUpdate(requete+", isAdmin = 0 where username = '"+obj.getId()+"'");
+
+            if(res==0){
+                System.out.println("update : "+obj.getId()+" n'existe pas !");
+            }
 
             s.close();
             con.close();
@@ -137,6 +152,7 @@ public class UserRepository implements Repository<User> {
         }
         catch(Exception e){
             System.out.println("Erreur lors de la mise a jour de "+obj.getId());
+            e.printStackTrace();
             return null;
         }
     }
