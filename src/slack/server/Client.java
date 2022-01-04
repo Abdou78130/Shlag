@@ -23,7 +23,6 @@ public class Client {
             writer.println(line);
             String reponse=reader.readLine();
             System.out.println(reponse);
-
             line = null;
 
             User cur_us = UserService.getCurrentUser();
@@ -49,31 +48,38 @@ public class Client {
                 cmd = substr[1];
                 chan = substr[2];
             }
-            /* //PROBLEME
+             /*//PROBLEME
             if((cur_u.getId()+": /join "+ChannelService.channelRepository.select(chan).getId()).equals(reponse)){
                 System.out.println(cmd);
                 System.out.println(chan);
                 //Enlever user du current channel
-                cur_c=ChannelService.channelRepository.select(chan);
+                //cur_c=ChannelService.channelRepository.select(chan);
                 reponse=ChannelService.channelRepository.select(chan).getId() + "s'est connecté au Channel : "+ChannelService.channelRepository.select(chan).getId()+" !";
                 System.out.println("Changement bien effectué");
             }
-            */
+              */
 
             // CREATION channel pas test en tant que admin
             if (cmd.equals("/create")){
-                if (cur_u instanceof Admin) {
+                if (cur_u.getAdmin()) {
                     ChannelService.creerChannel(chan);
+                    System.out.println("Channel bien créer");
                 } else {
                     System.out.println("Vous n'avez pas les droits nécessaire pour cette commande");
                 }
             }
             // DELETE channel pas test en tant que admin
             if(cmd.equals("/delete")) {
-                if (cmd.equals("/delete")) {
+                if (cur_u.getAdmin()) {
                     ChannelService.supprimerChannel(chan);
+                    System.out.println("Channel bien supprimer");
                 } else {
                     System.out.println("Vous n'avez pas les droits nécessaire pour cette commande");
+                }
+            }
+            if(cmd.equals("/affiche") && chan.equals("listeChannel")){
+                for ( Channel c: ChannelService.channelRepository.select()){
+                  System.out.println(c.getId());
                 }
             }
 
@@ -82,14 +88,4 @@ public class Client {
             e.printStackTrace();
         }
     }
-
 }
-/*
-for (User u: UserService.userRepository.select()) {
-    if(u.getId().equals(cur_user)){
-        MessageService.creerMessage(reponse,cur_chan,u);
-        System.out.println("message bien creer");
-        break;
-    }
-}
- */
