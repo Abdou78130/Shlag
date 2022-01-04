@@ -1,86 +1,47 @@
 package slack.model;
 
-import slack.service.ChannelService;
-import slack.service.UserService;
-
-import java.util.List;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 public class Message implements HasId {
-    private final int id;
     private String message;
-    private final String channel;
-    private final String username;
-    private final String time;
+    private Channel channel;
+    private User user;
+    private String messageId;
 
-    // Nouveau message
-    public Message(int lastId, String message, String channel, String auteur) {
+    public Message(String message, Channel channel, User user) {
         this.message = message;
         this.channel = channel;
-        this.username = auteur;
-        id = lastId + 1;
-        time = dateFormat(LocalDateTime.now());
+        this.user = user;
+        this.messageId = randomString();
     }
 
-    // Message récupéré depuis la bdd
-    public Message(int id, String message, String channel, String auteur, String time) {
-        this.message = message;
-        this.channel = channel;
-        this.username = auteur;
-        this.id = id;
-        this.time = time;
+    public String randomString() {
+        String str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "abcdefghijklmnopqrstuvwxyz" + "0123456789";
+        StringBuilder s = new StringBuilder(10);
+        for (int i = 0; i < 10; i++) {
+            int index = (int) (str.length() * Math.random());
+            s.append(str.charAt(index));
+        }
+        return s.toString();
     }
 
     @Override
     public String getId() {
-        return String.valueOf(id);
-    }
-
-    public int getIntId() {
-        return id;
-    }
-
-    public String getAuteur() {
-        return username;
-    }
-
-    public String getMessage() {
-        return message;
+        return messageId;
     }
 
     public void setMessage(String message) {
         this.message = message;
     }
 
-    public String getTime() {
-        return time;
-    }
-
-    public static int getLastId(List<Message> list) {
-        int max = 0;
-        for (Message message : list) {
-            if ((message.getIntId()) > max)
-                max = message.getIntId();
-        }
-        return max;
-    }
-
-    public static String dateFormat(LocalDateTime time) {
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        return time.format(format);
-    }
-
-    public String toString() {
-        return (username + " a écrit : " + message + " dans " + channel);
+    public String getMessage() {
+        return message;
     }
 
     public User getUser() {
-        return UserService.userRepository.select(username);
+        return user;
     }
 
     public Channel getChannel() {
-        return ChannelService.channelRepository.select(channel);
+        return channel;
     }
 
 }
