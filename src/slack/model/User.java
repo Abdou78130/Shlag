@@ -2,6 +2,7 @@ package slack.model;
 
 import slack.repository.db.UserRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class User implements HasId {
@@ -12,6 +13,7 @@ public class User implements HasId {
     protected String mail;
     protected String password;
     protected boolean admin;
+    private List<String> channels = new ArrayList<String>();
 
     public User(int lastId, String username, String nom, String prenom, String mail, String mdp) {
         this.username = username;
@@ -55,6 +57,14 @@ public class User implements HasId {
 
     public void setAdmin(boolean bool) {
         this.admin = bool;
+    }
+
+    public void addChannel(Channel channel){
+        channels.add(channel.getId());
+    }
+
+    public void remove(Channel channel){
+        channels.remove(channel.getId());
     }
 
     public boolean getAdmin() {
