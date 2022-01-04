@@ -2,7 +2,7 @@ package slack.repository.db;
 import java.sql.*;
 
 import slack.model.*;
-import slack.repository.Repository;
+import slack.repository.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ public class UserRepository implements Repository<User> {
             //System.out.println("Connexion à la base de donnée réussie !");
 
             String requete = "insert into users values (" + obj.getUserId() + ",'" + obj.getId() + "','" + obj.getNom() + "','" + obj.getPrenom() + "','" + obj.getMail() + "','" + obj.getPassword() + "', ''," ;
-            if (obj instanceof Admin)
+            if (obj.getAdmin())
                 s.executeUpdate(requete+"1);");
             else
                 s.executeUpdate(requete+"0);");
@@ -73,9 +73,9 @@ public class UserRepository implements Repository<User> {
             if(rs.next()) {
 
                 if (rs.getBoolean(8))
-                    user = new Admin(rs.getInt(1) - 1, rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+                    user = new User(rs.getInt(1) - 1, rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6),true);
                 else
-                    user = new User(rs.getInt(1) - 1, rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+                    user = new User(rs.getInt(1) - 1, rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6),false);
             }
             else
                 System.out.println("select : "+username+" n'existe pas !");
@@ -105,9 +105,9 @@ public class UserRepository implements Repository<User> {
             if(rs.next()){
                 do{
                     if (rs.getBoolean(8))
-                        list.add(new Admin(rs.getInt(1)-1,rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
+                        list.add(new User(rs.getInt(1)-1,rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),true));
                     else
-                        list.add(new User(rs.getInt(1)-1,rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
+                        list.add(new User(rs.getInt(1)-1,rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),false));
                 }while(rs.next());
             }
             else
@@ -136,7 +136,7 @@ public class UserRepository implements Repository<User> {
 
             String requete = "update users set username = '"+obj.getId()+"', nom = '"+obj.getNom()+"', prenom = '"+obj.getPrenom()+"', mail = '"+obj.getMail()+"', password = '"+obj.getPassword()+"'";
 
-            if(obj instanceof Admin)
+            if(obj.getAdmin())
                 res = s.executeUpdate(requete+", isAdmin = 1 where username = '"+obj.getId()+"'");
             else
                 res = s.executeUpdate(requete+", isAdmin = 0 where username = '"+obj.getId()+"'");

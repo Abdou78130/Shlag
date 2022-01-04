@@ -1,8 +1,7 @@
 package slack.service;
 
-import slack.model.User;
-import slack.repository.Repository;
-import slack.repository.RepositoryFactory;
+import slack.model.*;
+import slack.repository.*;
 
 import java.util.List;
 

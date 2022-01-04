@@ -1,6 +1,5 @@
 package slack;
 
-import slack.model.Admin;
 import slack.model.Message;
 import slack.model.User;
 import slack.server.Client;

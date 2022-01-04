@@ -1,7 +1,8 @@
 package slack.model;
 
-import slack.repository.db.UserRepository;
+import slack.repository.db.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class User implements HasId {
