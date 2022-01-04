@@ -41,6 +41,10 @@ public class Channel implements HasId {
         return name;
     }
 
+    public void setNom(String name) {
+        this.name = name;
+    }
+
     public String getMessages() {
         String s = "";
         for (int n : messages) {
