@@ -1,5 +1,6 @@
 package slack;
 
+import slack.model.Admin;
 import slack.model.Message;
 import slack.model.User;
 import slack.server.Client;
@@ -15,6 +16,7 @@ public class Main {
 
         User u = UserService.inscription("saren", "mdp", "saren@gmail.com", "Mastier", "Lucas");
         User u2 = UserService.inscription("abdou78", "mdp", "abdou78@gmail.com", "Haba", "Abdallah");
+        Admin a= (Admin) UserService.inscription("miike","mdp","mike@gmail.com","Chen","Mike");
         ChannelService.creerChannel("#general");
         ChannelService.creerChannel("#ProjetShlag");
         ChannelService.creerChannel("#Cours");
