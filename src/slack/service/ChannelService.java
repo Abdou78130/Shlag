@@ -23,6 +23,7 @@ public class ChannelService {
 
     public static void creerChannel(String name) {
         Channel channel = new Channel(name, "", "");
+        channelRepository.insert(channel);
         list.add(channelRepository.insert(channel));
     }
 }
