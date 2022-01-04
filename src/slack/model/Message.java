@@ -1,7 +1,5 @@
 package slack.model;
 
-import org.jetbrains.annotations.NotNull;
-
 import slack.service.ChannelService;
 import slack.service.UserService;
 
@@ -59,7 +57,7 @@ public class Message implements HasId {
         return time;
     }
 
-    public static int getLastId(@NotNull List<Message> list) {
+    public static int getLastId(List<Message> list) {
         int max = 0;
         for (Message message : list) {
             if ((message.getIntId()) > max)
@@ -68,7 +66,7 @@ public class Message implements HasId {
         return max;
     }
 
-    public static String dateFormat(@NotNull LocalDateTime time) {
+    public static String dateFormat(LocalDateTime time) {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         return time.format(format);
     }
