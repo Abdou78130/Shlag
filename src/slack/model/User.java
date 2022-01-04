@@ -29,7 +29,7 @@ public class User implements HasId {
         this.mail = mail;
         this.nom = nom;
         this.prenom = prenom;
-        this.admin = true;
+        this.admin = bool;
         this.userId = lastId + 1;
     }
 
