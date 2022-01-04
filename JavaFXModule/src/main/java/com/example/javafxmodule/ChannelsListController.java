@@ -25,11 +25,8 @@ public class ChannelsListController {
     private List<Channel> listChannel = ChannelService.getList();
 
     public void addChannelToList(ActionEvent event){
-        System.out.println("entrée dans la fonction");
         for (Channel channel : listChannel) {
-            System.out.println(channel.getId());
             buttonList.add(new Button(channel.getId()));
-            System.out.println(channel.getId());
         }
         listChannelPane.getChildren().clear();
         listChannelPane.getChildren().addAll(buttonList);
