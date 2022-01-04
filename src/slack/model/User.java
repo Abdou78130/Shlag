@@ -11,6 +11,7 @@ public class User implements HasId {
     protected String prenom;
     protected String mail;
     protected String password;
+    protected boolean admin;
 
     public User(int lastId, String username, String nom, String prenom, String mail, String mdp) {
         this.username = username;
@@ -18,6 +19,17 @@ public class User implements HasId {
         this.mail = mail;
         this.nom = nom;
         this.prenom = prenom;
+        this.admin = false;
+        this.userId = lastId + 1;
+    }
+
+    public User(int lastId, String username, String nom, String prenom, String mail, String mdp, boolean bool) {
+        this.username = username;
+        this.password = mdp;
+        this.mail = mail;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.admin = true;
         this.userId = lastId + 1;
     }
 
@@ -39,6 +51,14 @@ public class User implements HasId {
 
     public void setUsername(String user) {
         this.username = user;
+    }
+
+    public void setAdmin(boolean bool) {
+        this.admin = bool;
+    }
+
+    public boolean getAdmin() {
+        return admin;
     }
 
     public int getUserId() {

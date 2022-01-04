@@ -13,11 +13,11 @@ public class UserService {
     private static User currentuser = null;
 
     public static User authenticate(String username, String password) { /**
-     * Fonction permettant a un utilisateur de se
-     * connecter en rentrant un username et le
-     * mot de
-     * passe associé
-     **/
+                                                                         * Fonction permettant a un utilisateur de se
+                                                                         * connecter en rentrant un username et le
+                                                                         * mot de
+                                                                         * passe associé
+                                                                         **/
         User user = userRepository.select(username);
         if (user == null) {
             System.out.println("ERREUR : Le pseudo entré n'existe pas");
@@ -32,19 +32,15 @@ public class UserService {
         }
     }
 
-    public static User inscription(String username, String mdp, String mail, String nom, String prenom) { /**
-                                                                                                           * Fonction
-                                                                                                           * permettant
-                                                                                                           * l'inscription
-                                                                                                           * d'un
-                                                                                                           * nouveau
-                                                                                                           * utilisateur
-                                                                                                           * et son
-                                                                                                           * ajout a la
-                                                                                                           * base de
-                                                                                                           * donnée
-                                                                                                           **/
+    public static User inscription(String username, String mdp, String mail, String nom, String prenom) {
         User user = new User(User.getLastId(userRepository.select()), username, nom, prenom, mail, mdp);
+        userRepository.insert(user);
+        list.add(user);
+        return user;
+    }
+
+    public static User inscription(String username, String mdp, String mail, String nom, String prenom, boolean admin) {
+        User user = new User(User.getLastId(userRepository.select()), username, nom, prenom, mail, mdp, admin);
         userRepository.insert(user);
         list.add(user);
         return user;
