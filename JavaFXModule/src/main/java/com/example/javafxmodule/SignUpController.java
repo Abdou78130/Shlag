@@ -54,7 +54,7 @@ public class SignUpController {
     //Switch sur la fenêtre de connexion au click du bouton "Je suis déjà inscrit"
     @FXML
     public void switchToSignIn(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(SignUpController.class.getResource("Menu.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(SignUpController.class.getResource("SignIn.fxml"));
 
         //Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
