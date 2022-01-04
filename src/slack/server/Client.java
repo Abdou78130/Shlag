@@ -26,7 +26,7 @@ public class Client {
             line = null;
 
             User cur_us = UserService.getCurrentUser();
-            Channel cur_chan = ChannelService.ConnexionChannel("#general");
+            Channel cur_chan = ChannelService.connexionChannel("#general");
             //cur_chan.addUser(cur_us.getUserId());
             do{
                 line=entree.readLine();

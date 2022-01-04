@@ -20,9 +20,9 @@ public class ChannelsListController {
     @FXML
     private TilePane listChannelPane;
 
-    List<Button> buttonList = new ArrayList<>();
+    private List<Button> buttonList = new ArrayList<>();
 
-    List<Channel> listChannel = ChannelService.getList();
+    private List<Channel> listChannel = ChannelService.getList();
 
     public void addChannelToList(ActionEvent event){
         System.out.println("entrée dans la fonction");
