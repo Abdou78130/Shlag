@@ -19,8 +19,8 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         //Partie code
 
-        User u = UserService.inscription("saren", "mdp", "saren@gmail.com", "Mastier", "Lucas");
-        User u2 = UserService.inscription("abdou78", "mdp", "abdou78@gmail.com", "Haba", "Abdallah");
+        UserService.inscription("saren", "mdp", "saren@gmail.com", "Mastier", "Lucas");
+        UserService.inscription("abdou78", "mdp", "abdou78@gmail.com", "Haba", "Abdallah");
 
         List<User> list = UserService.userRepository.select();
         List<Message> list_mess = MessageService.messageRepository.select();
