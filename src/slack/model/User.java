@@ -61,10 +61,6 @@ public class User implements HasId {
         return mail;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
     public static int getLastId(List<User> list) {
         int max = 0;
         for (User user : list) {
