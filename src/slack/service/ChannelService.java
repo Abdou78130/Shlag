@@ -1,10 +1,10 @@
 package slack.service;
 
-import slack.model.*;
+import slack.model.Channel;
 import slack.repository.Repository;
 import slack.repository.RepositoryFactory;
+
 import java.util.List;
-import java.util.ArrayList;
 
 public class ChannelService {
 
@@ -25,5 +25,9 @@ public class ChannelService {
         Channel channel = new Channel(name, "", "");
         channelRepository.insert(channel);
         list.add(channelRepository.insert(channel));
+    }
+
+    public static List<Channel> getList(){
+        return list;
     }
 }
