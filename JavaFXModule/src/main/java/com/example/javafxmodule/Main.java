@@ -25,9 +25,6 @@ public class Main extends Application {
         List<Message> list_mess = MessageService.messageRepository.select();
 
 
-
-
-
         //Partie IHM
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("SignUp.fxml"));
 
@@ -37,7 +34,9 @@ public class Main extends Application {
         //scene.getStylesheets().add(css);
         scene.getStylesheets().add("application.css");
 
-        Image image = new Image(Main.class.getResourceAsStream("ShlagLogo.png"));
+        //URL imageUrl = getClass().getResource("/images/drawIcon.png");
+        //Image image = ImageIO.read(url);
+        Image image = new Image("/ShlagLogo.png");
         stage.getIcons().add(image);
         stage.setTitle("Inscription");
         stage.setScene(scene);
