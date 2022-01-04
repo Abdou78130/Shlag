@@ -41,7 +41,7 @@ public class Main extends Application {
 
         //URL imageUrl = getClass().getResource("/images/drawIcon.png");
         //Image image = ImageIO.read(url);
-        Image image = new Image("C:\\Users\\U1\\Documents\\GitHub\\Shlag\\JavaFXModule\\src\\main\\resources\\images\\ShlagLogo.png");
+        Image image = new Image("file:JavaFXModule/src/main/java/com/example/javafxmodule/images/ShlagLogo.png");
         stage.getIcons().add(image);
         stage.setTitle("Inscription");
         stage.setScene(scene);
