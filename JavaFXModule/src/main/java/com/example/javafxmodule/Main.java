@@ -3,6 +3,7 @@ package com.example.javafxmodule;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import slack.model.Message;
 import slack.model.User;
@@ -27,7 +28,6 @@ public class Main extends Application {
 
 
 
-
         //Partie IHM
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("SignUp.fxml"));
 
@@ -37,6 +37,8 @@ public class Main extends Application {
         //scene.getStylesheets().add(css);
         scene.getStylesheets().add("application.css");
 
+        Image image = new Image(Main.class.getResourceAsStream("ShlagLogo.png"));
+        stage.getIcons().add(image);
         stage.setTitle("Inscription");
         stage.setScene(scene);
         stage.show();
