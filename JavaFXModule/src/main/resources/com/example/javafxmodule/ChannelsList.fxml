@@ -17,7 +17,7 @@
                   <Reflection />
                </effect>
             </Label>
-            <TilePane fx:id="listChannelPane" layoutX="121.0" layoutY="175.0" prefHeight="728.0" prefWidth="1617.0" />
+            <TilePane fx:id="listChannelPane" layoutX="121.0" layoutY="273.0" prefHeight="630.0" prefWidth="1617.0" />
             <Button fx:id="backButton" layoutX="76.0" layoutY="39.0" mnemonicParsing="false" onAction="#switchToMenu" text="&lt;">
                <cursor>
                   <Cursor fx:constant="HAND" />
