@@ -1,8 +1,6 @@
 package slack.repository.db;
 
-import slack.model.Admin;
 import slack.model.Channel;
-import slack.model.User;
 import slack.repository.Repository;
 
 import java.sql.*;

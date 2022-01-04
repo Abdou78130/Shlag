@@ -1,8 +1,8 @@
 package slack.service;
 
 import slack.model.*;
-import slack.repository.Repository;
-import slack.repository.RepositoryFactory;
+import slack.repository.*;
+import slack.repository.db.*;
 import java.util.List;
 import java.util.ArrayList;
 

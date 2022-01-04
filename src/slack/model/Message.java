@@ -1,7 +1,6 @@
 package slack.model;
 
-import slack.service.ChannelService;
-import slack.service.UserService;
+import slack.service.*;
 
 import java.util.List;
 import java.time.LocalDateTime;

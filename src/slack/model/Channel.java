@@ -1,6 +1,6 @@
 package slack.model;
 
-import slack.repository.db.MessageRepository;
+import slack.repository.db.*;
 import slack.service.*;
 
 import java.util.Collections;

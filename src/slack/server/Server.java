@@ -1,17 +1,8 @@
 package slack.server;
 
-import slack.model.Admin;
-import slack.model.Channel;
-import slack.model.User;
-import slack.service.ChannelService;
-import slack.service.MessageService;
-import slack.service.UserService;
-
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 

@@ -3,9 +3,8 @@ package slack.service;
 import java.util.List;
 
 import slack.model.*;
-import slack.repository.Repository;
-import slack.repository.RepositoryFactory;
-import slack.repository.db.UserRepository;
+import slack.repository.*;
+import slack.repository.db.*;
 
 public class MessageService {
 
