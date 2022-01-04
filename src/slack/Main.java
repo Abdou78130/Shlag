@@ -3,6 +3,7 @@ package slack;
 import slack.model.Message;
 import slack.model.User;
 import slack.server.Client;
+import slack.service.ChannelService;
 import slack.service.MessageService;
 import slack.service.UserService;
 
@@ -14,6 +15,9 @@ public class Main {
 
         User u = UserService.inscription("saren", "mdp", "saren@gmail.com", "Mastier", "Lucas");
         User u2 = UserService.inscription("abdou78", "mdp", "abdou78@gmail.com", "Haba", "Abdallah");
+        ChannelService.creerChannel("#general");
+        ChannelService.creerChannel("#ProjetShlag");
+        ChannelService.creerChannel("#Cours");
         List<User> list = UserService.userRepository.select();
         List<Message> list_mess = MessageService.messageRepository.select();
 
