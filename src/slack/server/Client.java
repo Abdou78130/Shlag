@@ -78,6 +78,13 @@ public class Client {
                     return;
                 }
             }
+            //modify channel name
+            if(cmd.equals("/modify")){
+                if(cur_u.getAdmin()){
+                    ChannelService.modifierChannel(chan);
+                    reponse="Channel à été changer en "+chan+" par "+cur_u.getId();
+                }
+            }
             //Affiche la liste des channels
             if(cmd.equals("/affiche") && chan.equals("listeChannel")){
                 for ( Channel c: ChannelService.channelRepository.select()){
