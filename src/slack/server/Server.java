@@ -17,6 +17,13 @@ public class Server {
                     BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
                     String ligne = reader.readLine();
+                    String[] substr = ligne.split(" ");
+                    String cmd = "";
+                    String arg = "";
+                    if (substr.length > 2) {
+                        cmd = substr[1];
+                        arg = substr[2];
+                    }
                     String reponse = ligne + " s'est connecté au Channel :  #general !";
                     writer.println(reponse);
                     boolean t = true;
