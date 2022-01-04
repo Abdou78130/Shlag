@@ -24,11 +24,7 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="386d2605-0e4e-4521-a862-915eb4e885bc">
-        <schema name="shlag_db" object-types="table, view" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="386d2605-0e4e-4521-a862-915eb4e885bc">
@@ -36,9 +32,7 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="386d2605-0e4e-4521-a862-915eb4e885bc" object-ref="consoles/mysql_Connection" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="386d2605-0e4e-4521-a862-915eb4e885bc" />
