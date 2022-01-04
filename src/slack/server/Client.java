@@ -51,7 +51,7 @@ public class Client {
             if(cmd.equals("/join")){
                 if(ChannelService.channelRepository.select(chan)!=null) {
                     //Enlever user ddans l'ancien channel
-                    cur_c=ChannelService.ConnexionChannel(chan);
+                    cur_c=ChannelService.connexionChannel(chan);
                     reponse = cur_u.getId()+ " s'est connecté au Channel : "+cur_c.getId();
                     System.out.println("Changement bien effectué");
                 }
