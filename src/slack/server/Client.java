@@ -40,7 +40,6 @@ public class Client {
         try {
             String reponse = reader.readLine();
 
-            // join channel PROBLEME
             String[] substr = reponse.split(" ");
             String cmd = "";
             String chan = "";
@@ -48,18 +47,19 @@ public class Client {
                 cmd = substr[1];
                 chan = substr[2];
             }
-             /*//PROBLEME
-            if((cur_u.getId()+": /join "+ChannelService.channelRepository.select(chan).getId()).equals(reponse)){
-                System.out.println(cmd);
-                System.out.println(chan);
-                //Enlever user du current channel
-                //cur_c=ChannelService.channelRepository.select(chan);
-                reponse=ChannelService.channelRepository.select(chan).getId() + "s'est connecté au Channel : "+ChannelService.channelRepository.select(chan).getId()+" !";
-                System.out.println("Changement bien effectué");
-            }
-              */
 
-            // CREATION channel pas test en tant que admin
+            // join channel PROBLEME
+            if(cmd.equals("/join")){
+                if(ChannelService.channelRepository.select(chan)!=null) {
+                    //Enlever user du current channel
+                    //cur_c=ChannelService.channelRepository.select(chan);
+                    //reponse = ChannelService.channelRepository.select(chan).getId() + "s'est connecté au Channel : " + ChannelService.channelRepository.select(chan).getId() + " !";
+                    System.out.println("Changement bien effectué");
+                }
+            }
+
+
+            // CREATION channel
             if (cmd.equals("/create")){
                 if (cur_u.getAdmin()) {
                     ChannelService.creerChannel(chan);
@@ -68,7 +68,7 @@ public class Client {
                     System.out.println("Vous n'avez pas les droits nécessaire pour cette commande");
                 }
             }
-            // DELETE channel pas test en tant que admin
+            // DELETE channel
             if(cmd.equals("/delete")) {
                 if (cur_u.getAdmin()) {
                     ChannelService.supprimerChannel(chan);
@@ -77,6 +77,7 @@ public class Client {
                     System.out.println("Vous n'avez pas les droits nécessaire pour cette commande");
                 }
             }
+            //Affiche la liste des channels
             if(cmd.equals("/affiche") && chan.equals("listeChannel")){
                 for ( Channel c: ChannelService.channelRepository.select()){
                   System.out.println(c.getId());

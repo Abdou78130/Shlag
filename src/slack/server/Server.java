@@ -25,7 +25,6 @@ public class Server {
                         reponse = ligne;
                         System.out.println(reponse);
                         writer.println(reponse);
-
                     }
                     return true;
                 });
