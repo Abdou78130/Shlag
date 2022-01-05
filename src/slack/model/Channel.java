@@ -30,8 +30,7 @@ public class Channel implements HasId {
     public static List<String> spr(String[] list) {
         List<String> res = new ArrayList<String>();
         Collections.addAll(res, list);
-        while (res.remove(""))
-            ;
+        while (res.remove(""));
         return res;
 
     }

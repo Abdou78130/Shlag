@@ -45,10 +45,15 @@ public class Mainabd {
          * cs.channelRepository.insert(chan3);
          */
 
-        Message mess1 = new Message(0, "Hello world !", "#general", "veeko");
+        /*Message mess1 = new Message(0, "Hello world !", "#general", "veeko");
         Message mess2 = new Message(1, "I sleep !", "#general", "saren");
         Message mess3 = new Message(2, "We''re dead !", "#project", "miike");
-        Message mess4 = new Message(3, "pfff...", "#general", "abdou78");
+        Message mess4 = new Message(3, "pfff...", "#general", "abdou78");*/
+
+        List<Message> list = MessageService.messageRepository.select();
+        for(Message m : list){
+            System.out.println(m);
+        }
 
         // ms.MessageRepository.delete(mess1);
         // ms.MessageRepository.delete(mess1);
