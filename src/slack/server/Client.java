@@ -148,7 +148,7 @@ public class Client {
                 MessageService.modifierMessage(new_mess, MessageService.getIdLastMessage());
                 return;
             }
-            */
+
 
             //System.out.println(reponse);
             MessageService.creerMessage(reponse,cur_c,cur_u);
