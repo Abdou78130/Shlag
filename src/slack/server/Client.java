@@ -26,9 +26,8 @@ public class Client {
             System.out.println(reponse);
             MessageService.creerMessage(reponse,c,u);
             line = null;
-
             User cur_us = UserService.getCurrentUser();
-            Channel cur_chan = ChannelService.connexionChannel("#general");
+            Channel cur_chan = ChannelService.connexionChannel(c.getId());
             //cur_chan.addUser(cur_us.getUserId());
             do{
                 line=entree.readLine();
