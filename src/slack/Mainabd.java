@@ -53,7 +53,7 @@ public class Mainabd {
         // ms.MessageRepository.delete(mess1);
         // ms.MessageRepository.delete(mess1);
         // ms.MessageRepository.update(mess1);
-        MessageService.messageRepository.update(mess1);
+        //MessageService.messageRepository.insert(mess1);
 
     }
 }

@@ -17,14 +17,14 @@ public class Main {
         User u2 = UserService.inscription("abdou78", "mdp", "abdou78@gmail.com", "Haba", "Abdallah");
         User u3 = UserService.inscription("veeko","mdp","mounir@gmail.com","Lassal","Mounir");
         User u4 = UserService.inscription("miike","mdp","mike@gmail.com","Chen","Mike",true);
-        ChannelService.creerChannel("#general");
-        ChannelService.creerChannel("#ProjetShlag");
-        ChannelService.creerChannel("#Cours");
+        ChannelService.creerChannel("general");
+        ChannelService.creerChannel("ProjetShlag");
+        ChannelService.creerChannel("Cours");
         List<User> list = UserService.userRepository.select();
         List<Message> list_mess = MessageService.messageRepository.select();
 
-        if (UserService.authenticate(u4.getId(), u4.getPassword()) != null) {
-            Client.connectionServer(UserService.userRepository.select(u4.getId()),ChannelService.channelRepository.select("#Cours"));
+        if (UserService.authenticate(u3.getId(), u3.getPassword()) != null) {
+            Client.connectionServer(UserService.userRepository.select(u3.getId()),ChannelService.channelRepository.select("#Cours"));
         }
     }
 }

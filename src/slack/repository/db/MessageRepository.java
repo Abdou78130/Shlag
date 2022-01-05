@@ -94,7 +94,7 @@ public class MessageRepository implements Repository<Message> {
             //System.out.println("Connexion à la base de donnée réussie !");
 
             List<Message> list = new ArrayList<Message>();
-            ResultSet rs = s.executeQuery("select * from messages order by id;");
+            ResultSet rs = s.executeQuery("select * from messages order by time;");
 
             if(rs.next()) {
                 do {
