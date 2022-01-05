@@ -17,6 +17,7 @@ public class MessageService {
                 user.getId());
         list.add(messageRepository.insert(message));
         messageRepository.insert(message);
+        channel.addMessage(message.getIntId());
         return message;
     }
 
