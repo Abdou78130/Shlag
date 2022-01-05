@@ -129,11 +129,15 @@ public class Client {
                 }
                 return;
             }
-            /* modifier le dernier message
-            if(cmd.equals("modifyMessage")){
-                for(int i=0; i<substr.length;i++){
-
+            /*
+            // modifier le dernier message marche pas
+            if(cmd.equals("/modifyMessage")){
+                String new_mess= cur_u.getId()+": ";
+                for(int i=2; i<substr.length;i++){
+                    new_mess+=substr[i]+" ";
                 }
+                MessageService.modifierMessage(new_mess,MessageService.getIdLastMessage());
+                return;
             }
             */
             

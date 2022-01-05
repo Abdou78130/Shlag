@@ -24,7 +24,7 @@ public class Main {
         List<Message> list_mess = MessageService.messageRepository.select();
 
         if (UserService.authenticate(u4.getId(), u4.getPassword()) != null) {
-            Client.connectionServer(UserService.userRepository.select(u4.getId()),ChannelService.channelRepository.select("#general"));
+            Client.connectionServer(UserService.userRepository.select(u4.getId()),ChannelService.channelRepository.select("#Cours"));
         }
     }
 }
