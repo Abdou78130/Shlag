@@ -26,7 +26,7 @@
             <RowConstraints maxHeight="380.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" prefHeight="28.0" prefWidth="822.0" text="Vous êtes connecté au channel : nomduchannel" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Label fx:id="titleChannel" alignment="CENTER" prefHeight="28.0" prefWidth="822.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
             <TextArea fx:id="chatArea" editable="false" prefHeight="540.0" prefWidth="228.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
@@ -37,7 +37,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <TilePane fx:id="messageInputPane" prefHeight="52.0" prefWidth="1650.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TilePane fx:id="messageInputPane" prefHeight="29.0" prefWidth="1726.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </children>

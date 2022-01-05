@@ -9,6 +9,8 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -19,47 +21,47 @@
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-   <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="305.0" style="-fx-font-size: 30;" styleClass="titleHeader" text="Connexion" textAlignment="CENTER">
-      <effect>
-         <Reflection fraction="0.52" />
-      </effect>
-   </Label>
-   <GridPane prefHeight="501.0" prefWidth="1228.0">
+   <GridPane prefHeight="826.0" prefWidth="1287.0">
      <columnConstraints>
        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1038.0" minWidth="10.0" prefWidth="265.0" />
        <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="10.0" prefWidth="641.0" />
          <ColumnConstraints hgrow="SOMETIMES" maxWidth="937.0" minWidth="10.0" prefWidth="267.0" />
      </columnConstraints>
      <rowConstraints>
-       <RowConstraints maxHeight="228.0" minHeight="0.0" prefHeight="93.0" vgrow="SOMETIMES" />
-       <RowConstraints maxHeight="251.0" minHeight="0.0" prefHeight="45.0" vgrow="SOMETIMES" />
-         <RowConstraints maxHeight="272.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
-         <RowConstraints maxHeight="272.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
-         <RowConstraints fillHeight="false" maxHeight="339.0" minHeight="10.0" prefHeight="123.0" />
-         <RowConstraints fillHeight="false" maxHeight="272.0" minHeight="0.0" prefHeight="0.0" />
-         <RowConstraints fillHeight="false" maxHeight="272.0" minHeight="10.0" prefHeight="115.0" />
+         <RowConstraints maxHeight="0.0" minHeight="10.0" prefHeight="30.0" />
+         <RowConstraints maxHeight="73.0" minHeight="0.0" prefHeight="73.0" />
+         <RowConstraints maxHeight="228.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
+       <RowConstraints maxHeight="228.0" minHeight="0.0" prefHeight="11.0" vgrow="SOMETIMES" />
+       <RowConstraints maxHeight="228.0" minHeight="0.0" prefHeight="14.0" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="251.0" minHeight="0.0" prefHeight="64.0" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="272.0" minHeight="0.0" prefHeight="57.0" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="272.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+         <RowConstraints fillHeight="false" maxHeight="339.0" minHeight="0.0" prefHeight="137.0" />
+         <RowConstraints fillHeight="false" maxHeight="272.0" minHeight="0.0" prefHeight="2.0" />
+         <RowConstraints fillHeight="false" maxHeight="272.0" minHeight="0.0" prefHeight="152.0" />
+         <RowConstraints fillHeight="false" maxHeight="272.0" minHeight="10.0" prefHeight="26.0" />
      </rowConstraints>
       <children>
-         <TextField fx:id="idInput" promptText="grosshlag@gmail.com" styleClass="inputs" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <TextField fx:id="idInput" promptText="shlagito" styleClass="inputs" GridPane.columnIndex="1" GridPane.rowIndex="5">
             <effect>
                <Bloom />
             </effect></TextField>
-         <Label alignment="BOTTOM_LEFT" prefHeight="58.0" prefWidth="659.0" text="E-mail" GridPane.columnIndex="1">
+         <Label alignment="BOTTOM_LEFT" prefHeight="58.0" prefWidth="659.0" text="Pseudo" GridPane.columnIndex="1" GridPane.rowIndex="4">
             <font>
                <Font name="Lato Light" size="20.0" />
             </font>
          </Label>
-         <TextField fx:id="passwordInput" promptText="1234" styleClass="inputs" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <TextField fx:id="passwordInput" promptText="1234" styleClass="inputs" GridPane.columnIndex="1" GridPane.rowIndex="7">
             <effect>
                <Bloom />
             </effect>
          </TextField>
-         <Label alignment="BOTTOM_LEFT" prefHeight="58.0" prefWidth="659.0" text="Mot de passe" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <Label alignment="BOTTOM_LEFT" prefHeight="58.0" prefWidth="659.0" text="Mot de passe" GridPane.columnIndex="1" GridPane.rowIndex="6">
             <font>
                <Font name="Lato Light" size="20.0" />
             </font>
          </Label>
-          <Button fx:id="buttonTest" alignment="CENTER" contentDisplay="CENTER" onAction="#signIn" prefHeight="49.0" prefWidth="230.0" styleClass="title" text="Connexion" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+          <Button fx:id="buttonTest" alignment="CENTER" contentDisplay="CENTER" onAction="#signIn" prefHeight="49.0" prefWidth="230.0" styleClass="title" text="Connexion" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER">
             <font>
                <Font name="Lato Regular" size="14.0" />
             </font>
@@ -70,11 +72,21 @@
                <Cursor fx:constant="HAND" />
             </cursor>
          </Button>
-         <Hyperlink fx:id="switchToSignUpButton" alignment="BOTTOM_CENTER" contentDisplay="CENTER" onAction="#switchToSignUp" prefHeight="38.0" prefWidth="817.0" style="-fx-font-size: 18; -fx-border-color: transparent;" text="Créer un compte" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+         <Hyperlink fx:id="switchToSignUpButton" alignment="BOTTOM_CENTER" contentDisplay="CENTER" onAction="#switchToSignUp" prefHeight="38.0" prefWidth="817.0" style="-fx-font-size: 18; -fx-border-color: transparent;" text="Créer un compte" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER">
             <font>
                <Font size="9.0" />
             </font>
          </Hyperlink>
+         <ImageView fx:id="logo" fitHeight="245.0" fitWidth="168.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+            <image>
+               <Image url="@../../../../java/com/example/javafxmodule/images/ShlagLogo2.png" />
+            </image>
+         </ImageView>
+         <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="305.0" style="-fx-font-size: 30;" styleClass="titleHeader" text="Connexion" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <effect>
+               <Reflection fraction="0.52" />
+            </effect>
+         </Label>
       </children>
    </GridPane>
    <stylesheets>

@@ -7,6 +7,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import slack.model.User;
 import slack.service.UserService;
@@ -21,6 +23,13 @@ public class SignInController {
 
     @FXML
     private TextField passwordInput;
+
+    @FXML
+    private ImageView logo;
+
+    public void initialize(){
+        logo.setImage(new Image("file:JavaFXModule/src/main/java/com/example/javafxmodule/images/ShlagLogo2.png"));
+    }
 
 
     //Switch sur la fenêtre d'inscription' au click du bouton "Créer un compte"

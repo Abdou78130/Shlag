@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.TilePane;
@@ -38,6 +39,9 @@ public class ChannelChatController {
 
     private Service<Void> backgroundThread;
 
+    @FXML
+    private Label titleChannel;
+
     static {
         try {
             message = new ByteArrayInputStream(messageInput.getText().getBytes("UTF-8"));
@@ -47,6 +51,8 @@ public class ChannelChatController {
     }
 
     public void initialize() {
+        titleChannel.setText("Vous êtes connecté au "+ChannelService.getCurrentChannel());
+        messageInput.setPrefSize( 1650, 29 );
         messageInput.setOnAction(new EventHandler() {
             public void handle(Event event) {
                 chatArea.appendText("Pseudo : "+messageInput.getText()+"\n");

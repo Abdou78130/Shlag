@@ -19,7 +19,7 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         //Partie code
 
-        UserService.inscription("saren", "mdp", "saren@gmail.com", "Mastier", "Lucas");
+        UserService.inscription("saren", "mdp", "saren@gmail.com", "Mastier", "Lucas", true);
         UserService.inscription("abdou78", "mdp", "abdou78@gmail.com", "Haba", "Abdallah");
 
         List<User> list = UserService.userRepository.select();
@@ -41,7 +41,7 @@ public class Main extends Application {
 
         //URL imageUrl = getClass().getResource("/images/drawIcon.png");
         //Image image = ImageIO.read(url);
-        Image image = new Image("file:JavaFXModule/src/main/java/com/example/javafxmodule/images/ShlagLogo.png");
+        Image image = new Image("file:JavaFXModule/src/main/java/com/example/javafxmodule/images/icon_slack_hash_colored.png");
         stage.getIcons().add(image);
         stage.setTitle("Inscription");
         stage.setScene(scene);

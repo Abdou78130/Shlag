@@ -1,6 +1,7 @@
 package com.example.javafxmodule;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -22,6 +23,7 @@ public class AdminMenuController {
         stage.show();
     }
 
+    @FXML
     public void switchToChannelCreation(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SignUpController.class.getResource("ChannelsList.fxml"));
 
@@ -33,6 +35,7 @@ public class AdminMenuController {
         stage.show();
     }
 
+    @FXML
     public void switchToChannelDelete(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SignUpController.class.getResource("ChannelsList.fxml"));
 

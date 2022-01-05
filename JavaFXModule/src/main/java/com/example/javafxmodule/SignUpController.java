@@ -8,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import slack.service.UserService;
 
@@ -39,8 +41,15 @@ public class SignUpController {
     private boolean warningIsDisplayed = false;
 
     @FXML
+    private ImageView logo;
+
+    @FXML
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
+    }
+
+    public void initialize(){
+        logo.setImage(new Image("file:JavaFXModule/src/main/java/com/example/javafxmodule/images/ShlagLogo2.png"));
     }
 
     //Fonction lancée au clic du bouton s'inscrire

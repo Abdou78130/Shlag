@@ -28,7 +28,7 @@ public class ChannelsListController {
 
 
 
-    public void addChannelToList(ActionEvent event){
+    public void initialize(){
         for (Channel channel : listChannel) {
             Button button = new Button(channel.getId());
             button.setOnAction(new EventHandler() {

@@ -23,6 +23,11 @@
     -fx-background-insets: 0, 1 0 0 0 ;
 }
 
+.text-field{
+    -fx-background-color: melon, #2f2d2f;
+    -fx-background-insets: 0, 1 0 0 0 ;
+}
+
 
 .button{
     -fx-background-color : mint-cream;
