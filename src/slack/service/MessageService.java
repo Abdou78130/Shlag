@@ -1,6 +1,7 @@
 package slack.service;
 
 import java.util.List;
+import java.util.ListIterator;
 
 import slack.model.*;
 import slack.repository.*;
@@ -31,4 +32,15 @@ public class MessageService {
         messageRepository.update(message);
     }
 
+    public static int getIdLastMessage() {
+        List<Integer> messages = ChannelService.getCurrentChannel().getListMessages();
+        for (int i = 0; i < messages.size(); i++) {
+            Message message = MessageService.messageRepository.select(String.valueOf(messages.get(i)));
+            if (message.getAuteur().equals(UserService.getCurrentUser().getId())) {
+                return message.getIntId();
+            }
+        }
+        System.out.print("Aucun message récent de l'utilisateur sur ce channel n'a été trouvé ");
+        return -1;
+    }
 }
