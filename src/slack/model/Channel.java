@@ -32,7 +32,6 @@ public class Channel implements HasId {
         Collections.addAll(res, list);
         while (res.remove(""));
         return res;
-
     }
 
     @Override

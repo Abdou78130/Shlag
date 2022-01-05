@@ -29,7 +29,7 @@ public class ChannelService {
         if (UserService.getCurrentUser().getAdmin()) {
             currentchannel.setNom(name);
             channelRepository.update(currentchannel);
-            System.out.print("Channel rennomé avec succès");
+            System.out.print("SUCCES : ");
         } else {
             System.out.println("Impossible de renommé , vous n'êtes pas admin");
         }
