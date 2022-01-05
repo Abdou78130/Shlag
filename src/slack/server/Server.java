@@ -27,12 +27,28 @@ public class Server {
                     String reponse = usr + " s'est connecté au Channel :  "+chan+" !";
                     writer.println(reponse);
                     boolean t = true;
+
                     while (t) {
                         ligne = reader.readLine();
                         reponse = ligne;
                         System.out.println(reponse);
                         writer.println(reponse);
                     }
+                    /*
+                    do {
+                        ligne = reader.readLine();
+                        reponse = ligne;
+                        writer.println(reponse);
+                    } while(ligne!=null);
+                    */
+                    /*
+                    while (t) {
+                        Serializable data = (Serializable) in.readObject();
+                        reponse = ligne;
+                        System.out.println(reponse);
+                        writer.println(reponse);
+                    }*/
+
                     return true;
                 });
             }

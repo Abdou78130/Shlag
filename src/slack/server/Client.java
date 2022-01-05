@@ -1,6 +1,5 @@
 package slack.server;
 
-import javafx.scene.control.TextField;
 import slack.model.Channel;
 import slack.model.Message;
 import slack.model.User;
@@ -8,13 +7,8 @@ import slack.service.ChannelService;
 import slack.service.MessageService;
 import slack.service.UserService;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
-
-import static com.example.javafxmodule.ChannelChatController.messageInput;
 
 public class Client {
     public static void connectionServer(User u,Channel c) throws IOException {
@@ -42,9 +36,9 @@ public class Client {
     }
 
 
-    public static void connectionServer(User u, Channel c, TextField message) throws IOException {
+    public static void connectionServer(User u, Channel c, ByteArrayInputStream message) throws IOException {
         try(Socket socket= new Socket("localhost",1236)){
-            BufferedReader entree = new BufferedReader(new InputStreamReader(messageInput.getInputStream()));
+            BufferedReader entree = new BufferedReader(new InputStreamReader(message));
             BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter writer = new PrintWriter(socket.getOutputStream(),true);
             String line=u.getId()+" "+c.getId();
@@ -53,10 +47,21 @@ public class Client {
             String reponse=reader.readLine();
             System.out.println(reponse);
             MessageService.creerMessage(reponse,c,u);
-            line = null;
+            String line2 = null;
             User cur_us = UserService.getCurrentUser();
             Channel cur_chan = ChannelService.connexionChannel(c.getId());
             //cur_chan.addUser(cur_us.getUserId());
+            /*
+            do{
+                System.out.println("GROS TEST");
+                line2=entree.readLine();
+                line = u.getId()+": "+line2;
+                writer.println(line);
+
+                Client.readServ(reader,cur_us,cur_chan);
+                System.out.println("GROS TEST2");
+            }while(line2!=null);*/
+
             do{
                 line=entree.readLine();
                 line = u.getId()+": "+line;

@@ -4,11 +4,10 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox prefHeight="1080.0" prefWidth="1920.0" styleClass="background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxmodule.ChannelChatController">
@@ -23,8 +22,8 @@
           <RowConstraints maxHeight="276.0" minHeight="0.0" prefHeight="198.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="825.0" minHeight="10.0" prefHeight="825.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="494.0" minHeight="0.0" prefHeight="37.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="537.0" minHeight="0.0" prefHeight="6.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="380.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="537.0" minHeight="0.0" prefHeight="26.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="380.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label alignment="CENTER" prefHeight="28.0" prefWidth="822.0" text="Vous êtes connecté au channel : nomduchannel" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
@@ -33,16 +32,12 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </TextArea>
-            <TextField fx:id="messageInput" onAction="#sendMessage" prefHeight="50.0" prefWidth="1650.0" styleClass="inputs" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <effect>
-                  <Bloom />
-               </effect>
-            </TextField>
             <Button mnemonicParsing="false" onAction="#switchToChannelsList" text="&lt;" GridPane.columnIndex="1">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <TilePane fx:id="messageInputPane" prefHeight="52.0" prefWidth="1650.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </children>

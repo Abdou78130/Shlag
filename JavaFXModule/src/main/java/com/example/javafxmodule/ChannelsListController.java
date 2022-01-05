@@ -1,8 +1,5 @@
 package com.example.javafxmodule;
 
-import javafx.concurrent.Service;
-import javafx.concurrent.Task;
-import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -14,9 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 import slack.model.Channel;
-import slack.server.Client;
 import slack.service.ChannelService;
-import slack.service.UserService;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,7 +26,7 @@ public class ChannelsListController {
 
     private List<Channel> listChannel = ChannelService.getList();
 
-    private Service<Void> backgroundThread;
+
 
     public void addChannelToList(ActionEvent event){
         for (Channel channel : listChannel) {
@@ -40,6 +35,7 @@ public class ChannelsListController {
 
                                    @Override
                                    public void handle(Event event) {
+                                       ChannelService.setCurrentChannel(channel);
                                        FXMLLoader fxmlLoader = new FXMLLoader(SignUpController.class.getResource("ChannelChat.fxml"));
 
                                        //Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
@@ -55,41 +51,8 @@ public class ChannelsListController {
                                        stage.show();
 
 
-                                       //Connexion au serveur
-                                       backgroundThread = new Service<Void>() {
-                                           @Override
-                                           protected Task<Void> createTask() {
-                                               return new Task<Void>() {
-                                                   @Override
-                                                   protected Void call() throws Exception {
 
-                                                       try {
-                                                           Client.connectionServer(UserService.getCurrentUser(),channel,ChannelChatController.message);
-                                                       } catch (IOException e) {
-                                                           e.printStackTrace();
-                                                       }
 
-                                                       return null;
-                                                   }
-                                               };
-                                           }
-                                       };
-
-                                       backgroundThread.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
-                                           @Override
-                                           public void handle(WorkerStateEvent workerStateEvent) {
-                                               System.out.println("CA MARCHE");
-                                           }
-                                       });
-
-                                       backgroundThread.setOnCancelled(new EventHandler<WorkerStateEvent>() {
-                                           @Override
-                                           public void handle(WorkerStateEvent workerStateEvent) {
-                                               System.out.println("ca marche pas sa mere");
-                                           }
-                                       });
-
-                                       backgroundThread.restart();
 
 
                                    }
