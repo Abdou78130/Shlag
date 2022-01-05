@@ -50,7 +50,7 @@ public class ChannelService {
         return currentchannel;
     }
 
-    public static Channel setCurrentChannel(Channel channel) {
+    public static void setCurrentChannel(Channel channel) {
         currentchannel = channel;
     }
 }
