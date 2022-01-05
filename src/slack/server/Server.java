@@ -18,13 +18,13 @@ public class Server {
                     PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
                     String ligne = reader.readLine();
                     String[] substr = ligne.split(" ");
-                    String cmd = "";
-                    String arg = "";
-                    if (substr.length > 2) {
-                        cmd = substr[1];
-                        arg = substr[2];
+                    String usr = "";
+                    String chan = "";
+                    if (substr.length == 2) {
+                        usr = substr[0];
+                        chan = substr[1];
                     }
-                    String reponse = ligne + " s'est connecté au Channel :  #general !";
+                    String reponse = usr + " s'est connecté au Channel :  "+chan+" !";
                     writer.println(reponse);
                     boolean t = true;
                     while (t) {

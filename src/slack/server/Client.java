@@ -20,9 +20,11 @@ public class Client {
             BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter writer = new PrintWriter(socket.getOutputStream(),true);
             String line=u.getId()+" "+c.getId();
+            String[] sub = line.split(" ");
             writer.println(line);
             String reponse=reader.readLine();
             System.out.println(reponse);
+            MessageService.creerMessage(reponse,c,u);
             line = null;
 
             User cur_us = UserService.getCurrentUser();
@@ -89,18 +91,16 @@ public class Client {
             if(cmd.equals("/affiche") && arg.equals("listeChannel")){
                 for ( Channel c: ChannelService.channelRepository.select()){
                   System.out.println(c.getId());
-                  return;
                 }
+                return;
             }
-            //affiche message
-            /*
-            if(cmd.equals("/affiche") && arg.equals("mess")){
-                for (:
-                     ) {
-                    
-                }   
+            //affiche message pour les tests
+            if(cmd.equals("/affiche") && arg.equals("messages")){
+                for (Message m:MessageService.messageRepository.select()) {
+                    System.out.println(m.getMessage());
+                }
+                return;
             }
-             */
             
             System.out.println(reponse);
             MessageService.creerMessage(reponse,cur_c,cur_u);
