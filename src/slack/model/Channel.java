@@ -13,7 +13,7 @@ public class Channel implements HasId {
     private List<Integer> users = new ArrayList<Integer>();
 
     public Channel(String name, String listUsers, String listMessages) {
-        this.name = "#"+name;
+        this.name = name;
         if (listMessages == "")
             for (String id : spr(listMessages.split(","))) {
 
@@ -32,7 +32,6 @@ public class Channel implements HasId {
         Collections.addAll(res, list);
         while (res.remove(""));
         return res;
-
     }
 
     @Override

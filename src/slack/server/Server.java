@@ -34,13 +34,12 @@ public class Server {
                         System.out.println(reponse);
                         writer.println(reponse);
                     }
-                    /*
                     do {
                         ligne = reader.readLine();
                         reponse = ligne;
                         writer.println(reponse);
                     } while(ligne!=null);
-                    */
+
                     /*
                     while (t) {
                         Serializable data = (Serializable) in.readObject();

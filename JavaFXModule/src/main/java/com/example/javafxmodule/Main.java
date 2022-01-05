@@ -25,9 +25,9 @@ public class Main extends Application {
         List<User> list = UserService.userRepository.select();
         List<Message> list_mess = MessageService.messageRepository.select();
 
-        ChannelService.creerChannel("#general");
-        ChannelService.creerChannel("#ProjetShlag");
-        ChannelService.creerChannel("#Cours");
+        ChannelService.creerChannel("general");
+        ChannelService.creerChannel("ProjetShlag");
+        ChannelService.creerChannel("Cours");
 
 
         //Partie IHM
