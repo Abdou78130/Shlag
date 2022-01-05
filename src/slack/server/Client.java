@@ -48,7 +48,7 @@ public class Client {
                 cmd = substr[1];
                 arg = substr[2];
             }
-            // join channel PROBLEME
+            // join channel
             if(cmd.equals("/join")){
                 if(ChannelService.channelRepository.select(arg)!=null) {
                     //Enlever user dans l'ancien channel
@@ -100,6 +100,13 @@ public class Client {
                 }
                 return;
             }
+            /* modifier le dernier message
+            if(cmd.equals("modifyMessage")){
+                for(int i=0; i<substr.length;i++){
+
+                }
+            }
+            */
             
             System.out.println(reponse);
             MessageService.creerMessage(reponse,cur_c,cur_u);
