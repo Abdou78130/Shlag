@@ -25,13 +25,13 @@ public class ChannelsListController {
 
     private List<Button> buttonList = new ArrayList<>();
 
-    private List<Channel> listChannel = ChannelService.getList();
+    private List<Channel> listChannel = ChannelService.channelRepository.select();
 
 
 
     public void initialize(){
-        for (Channel channel : listChannel) {
-            Button button = new Button(channel.getId());
+        for (Channel channel : ChannelService.channelRepository.select()) {
+            Button button = new Button('#'+channel.getId());
             button.setOnAction(new EventHandler() {
 
                                    @Override
@@ -50,12 +50,6 @@ public class ChannelsListController {
 
                                        stage.setScene(scene);
                                        stage.show();
-
-
-
-
-
-
                                    }
 
                                });

@@ -24,7 +24,7 @@ public class Server {
                         usr = substr[0];
                         chan = substr[1];
                     }
-                    String reponse = usr + " s'est connecté au Channel :  "+chan+" !";
+                    String reponse = usr + " sest connecté au Channel :  "+chan+" !";
                     writer.println(reponse);
                     boolean t = true;
 

@@ -13,18 +13,20 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        User u = UserService.inscription("saren", "mdp", "saren@gmail.com", "Mastier", "Lucas");
-        User u2 = UserService.inscription("abdou78", "mdp", "abdou78@gmail.com", "Haba", "Abdallah");
-        User u3 = UserService.inscription("veeko","mdp","mounir@gmail.com","Lassal","Mounir");
-        User u4 = UserService.inscription("miike","mdp","mike@gmail.com","Chen","Mike",true);
+        //User u = UserService.inscription("saren", "mdp", "saren@gmail.com", "Mastier", "Lucas");
+        User u2 = UserService.userRepository.select("abdou78");
+        User u3 = UserService.userRepository.select("veeko");
+        /*User u4 = UserService.inscription("miike","mdp","mike@gmail.com","Chen","Mike",true);
         ChannelService.creerChannel("general");
         ChannelService.creerChannel("ProjetShlag");
-        ChannelService.creerChannel("Cours");
+        ChannelService.creerChannel("Cours");*/
+
         List<User> list = UserService.userRepository.select();
         List<Message> list_mess = MessageService.messageRepository.select();
 
         if (UserService.authenticate(u3.getId(), u3.getPassword()) != null) {
-            Client.connectionServer(UserService.userRepository.select(u3.getId()),ChannelService.channelRepository.select("#Cours"));
+            ChannelService.connexionChannel("Cours");
+            Client.connectionServer(UserService.userRepository.select(u3.getId()),ChannelService.channelRepository.select("Cours"));
         }
     }
 }

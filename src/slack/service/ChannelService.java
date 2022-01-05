@@ -31,7 +31,7 @@ public class ChannelService {
             channelRepository.update(currentchannel);
             System.out.print("Channel rennomé avec succès");
         } else {
-            System.out.print("Impossible de renommé , vous n'êtes pas admin");
+            System.out.println("Impossible de renommé , vous n'êtes pas admin");
         }
 
     }

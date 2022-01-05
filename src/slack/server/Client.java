@@ -9,6 +9,8 @@ import slack.service.UserService;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Client {
     public static void connectionServer(User u,Channel c) throws IOException {
@@ -21,14 +23,16 @@ public class Client {
             writer.println(line);
             String reponse=reader.readLine();
             System.out.println(reponse);
-            MessageService.creerMessage(reponse,c,u);
+            //MessageService.creerMessage(reponse,c,u);
+            for(String mess : MessageService.afficherMessages(c,MessageService.messageRepository.select().size()))
+                System.out.println(mess);
             line = null;
             User cur_us = UserService.getCurrentUser();
             Channel cur_chan = ChannelService.connexionChannel(c.getId());
             //cur_chan.addUser(cur_us.getUserId());
             do{
                 line=entree.readLine();
-                line = u.getId()+": "+line;
+                line = u.getId()+" : "+line;
                 writer.println(line);
                 Client.readServ(reader,cur_us,cur_chan);
             }while(line!=null);
@@ -46,7 +50,7 @@ public class Client {
             writer.println(line);
             String reponse=reader.readLine();
             System.out.println(reponse);
-            MessageService.creerMessage(reponse,c,u);
+            //MessageService.creerMessage(reponse,c,u);
             String line2 = null;
             User cur_us = UserService.getCurrentUser();
             Channel cur_chan = ChannelService.connexionChannel(c.getId());
@@ -87,7 +91,7 @@ public class Client {
                 if(ChannelService.channelRepository.select(arg)!=null) {
                     //Enlever user dans l'ancien channel
                     cur_c=ChannelService.connexionChannel(arg);
-                    reponse = cur_u.getId()+ " s'est connecté au Channel : "+cur_c.getId();
+                    reponse = cur_u.getId()+ " sest connecté au Channel : "+cur_c.getId();
                     System.out.println("Changement bien effectué");
                 }
             }
@@ -146,8 +150,9 @@ public class Client {
             }
             */
             
-            System.out.println(reponse);
+            //System.out.println(reponse);
             MessageService.creerMessage(reponse,cur_c,cur_u);
+
         }catch(IOException e){
             e.printStackTrace();
         }

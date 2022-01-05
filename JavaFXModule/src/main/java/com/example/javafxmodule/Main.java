@@ -5,8 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import slack.model.Message;
-import slack.model.User;
+import slack.model.*;
 import slack.service.ChannelService;
 import slack.service.MessageService;
 import slack.service.UserService;
@@ -19,15 +18,18 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         //Partie code
 
-        UserService.inscription("saren", "mdp", "saren@gmail.com", "Mastier", "Lucas", true);
-        UserService.inscription("abdou78", "mdp", "abdou78@gmail.com", "Haba", "Abdallah");
+        /*UserService.inscription("saren", "mdp", "saren@gmail.com", "Mastier", "Lucas", true);
+        UserService.inscription("abdou78", "mdp", "abdou78@gmail.com", "Haba", "Abdallah");*/
+
+
 
         List<User> list = UserService.userRepository.select();
         List<Message> list_mess = MessageService.messageRepository.select();
 
-        ChannelService.creerChannel("#general");
-        ChannelService.creerChannel("#ProjetShlag");
-        ChannelService.creerChannel("#Cours");
+        /*Channel chan = ChannelService.channelRepository.select("#general");
+        chan.addUser(UserService.userRepository.select("saren").getUserId());
+        ChannelService.channelRepository.update(chan);*/
+
 
 
         //Partie IHM

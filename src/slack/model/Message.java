@@ -74,12 +74,12 @@ public class Message implements HasId {
         return (username + " a écrit : " + message + " dans " + channel);
     }
 
-    public User getUser() {
-        return UserService.userRepository.select(username);
+    public String getUser() {
+        return UserService.userRepository.select(username).getId();
     }
 
-    public Channel getChannel() {
-        return ChannelService.channelRepository.select(channel);
+    public String getChannel() {
+        return ChannelService.channelRepository.select(channel).getId();
     }
 
 }

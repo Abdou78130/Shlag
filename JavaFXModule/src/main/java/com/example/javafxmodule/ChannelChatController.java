@@ -17,6 +17,7 @@ import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 import slack.server.Client;
 import slack.service.ChannelService;
+import slack.service.MessageService;
 import slack.service.UserService;
 
 import java.io.ByteArrayInputStream;
@@ -30,7 +31,7 @@ public class ChannelChatController {
     private TextArea chatArea;
 
     @FXML
-    private static TextField messageInput = new TextField("test");
+    private static TextField messageInput = new TextField();
 
     @FXML
     private TilePane messageInputPane;
@@ -51,12 +52,16 @@ public class ChannelChatController {
     }
 
     public void initialize() {
+        for(String mess : MessageService.afficherMessages(ChannelService.getCurrentChannel(),MessageService.messageRepository.select().size()))
+            chatArea.appendText(mess+'\n');
+
+
         titleChannel.setText("Vous êtes connecté au "+ChannelService.getCurrentChannel());
         messageInput.setPrefSize( 1650, 29 );
         messageInput.setOnAction(new EventHandler() {
             public void handle(Event event) {
-                chatArea.appendText("Pseudo : "+messageInput.getText()+"\n");
-
+                chatArea.appendText(UserService.getCurrentUser().getId()+" : "+messageInput.getText()+"\n");
+                MessageService.creerMessage(messageInput.getText(),ChannelService.getCurrentChannel(),UserService.getCurrentUser());
                 try {
                     message = new ByteArrayInputStream(messageInput.getText().getBytes("UTF-8"));
                 } catch (UnsupportedEncodingException e) {
@@ -77,11 +82,11 @@ public class ChannelChatController {
                     @Override
                     protected Void call() throws Exception {
 
-                        try {
+                        /*try {
                             Client.connectionServer(UserService.getCurrentUser(), ChannelService.getCurrentChannel(),message);
                         } catch (IOException e) {
                             e.printStackTrace();
-                        }
+                        }*/
 
                         return null;
                     }
