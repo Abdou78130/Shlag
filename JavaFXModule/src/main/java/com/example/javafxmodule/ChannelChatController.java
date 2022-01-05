@@ -9,7 +9,10 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+
 
 public class ChannelChatController {
 
@@ -17,12 +20,21 @@ public class ChannelChatController {
     private TextArea chatArea;
 
     @FXML
-    private TextField messageInput;
+    private static TextField messageInput;
 
-    public void sendMessage(ActionEvent event){
-        //messageInput.setOnAction(event ->);
-        System.out.println(messageInput.getText());
+    private static ByteArrayInputStream message;
+
+    static {
+        try {
+            message = new ByteArrayInputStream(messageInput.getText().getBytes("UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void sendMessage(ActionEvent event) throws UnsupportedEncodingException {
         chatArea.appendText("Pseudo : "+messageInput.getText()+"\n");
+        message = new ByteArrayInputStream(messageInput.getText().getBytes("UTF-8");
         messageInput.clear();
     }
 
@@ -35,6 +47,10 @@ public class ChannelChatController {
 
         stage.setScene(scene);
         stage.show();
+    }
+
+    public static String getMessageInput(){
+        return messageInput.getText();
     }
 
 

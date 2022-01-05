@@ -64,7 +64,7 @@ public class ChannelsListController {
                                                    protected Void call() throws Exception {
 
                                                        try {
-                                                           Client.connectionServer(UserService.getCurrentUser(),channel);
+                                                           Client.connectionServer(UserService.getCurrentUser(),channel,ChannelChatController.message);
                                                        } catch (IOException e) {
                                                            e.printStackTrace();
                                                        }

@@ -1,17 +1,20 @@
 package slack.server;
 
+import javafx.scene.control.TextField;
+import slack.model.Channel;
+import slack.model.Message;
+import slack.model.User;
+import slack.service.ChannelService;
+import slack.service.MessageService;
+import slack.service.UserService;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.nio.BufferOverflowException;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
 
-
-import slack.model.*;
-import slack.service.*;
+import static com.example.javafxmodule.ChannelChatController.messageInput;
 
 public class Client {
     public static void connectionServer(User u,Channel c) throws IOException {
@@ -37,6 +40,32 @@ public class Client {
             }while(line!=null);
         }
     }
+
+
+    public static void connectionServer(User u, Channel c, TextField message) throws IOException {
+        try(Socket socket= new Socket("localhost",1236)){
+            BufferedReader entree = new BufferedReader(new InputStreamReader(messageInput.getInputStream()));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            PrintWriter writer = new PrintWriter(socket.getOutputStream(),true);
+            String line=u.getId()+" "+c.getId();
+            String[] sub = line.split(" ");
+            writer.println(line);
+            String reponse=reader.readLine();
+            System.out.println(reponse);
+            MessageService.creerMessage(reponse,c,u);
+            line = null;
+            User cur_us = UserService.getCurrentUser();
+            Channel cur_chan = ChannelService.connexionChannel(c.getId());
+            //cur_chan.addUser(cur_us.getUserId());
+            do{
+                line=entree.readLine();
+                line = u.getId()+": "+line;
+                writer.println(line);
+                Client.readServ(reader,cur_us,cur_chan);
+            }while(line!=null);
+        }
+    }
+
     private static void readServ(BufferedReader reader, User cur_u, Channel cur_c){
         try {
             String reponse = reader.readLine();

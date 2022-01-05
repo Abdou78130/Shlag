@@ -49,4 +49,8 @@ public class ChannelService {
     public static Channel getCurrentChannel() {
         return currentchannel;
     }
+
+    public static Channel setCurrentChannel(Channel channel) {
+        currentchannel = channel;
+    }
 }
