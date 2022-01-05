@@ -61,7 +61,7 @@ public class ChannelChatController {
         messageInput.setOnAction(new EventHandler() {
             public void handle(Event event) {
                 chatArea.appendText(UserService.getCurrentUser().getId()+" : "+messageInput.getText()+"\n");
-                MessageService.creerMessage(messageInput.getText(),ChannelService.getCurrentChannel(),UserService.getCurrentUser());
+                MessageService.creerMessage(UserService.getCurrentUser().getId()+" : "+messageInput.getText(),ChannelService.getCurrentChannel(),UserService.getCurrentUser());
                 try {
                     message = new ByteArrayInputStream(messageInput.getText().getBytes("UTF-8"));
                 } catch (UnsupportedEncodingException e) {

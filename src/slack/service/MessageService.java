@@ -60,18 +60,5 @@ public class MessageService {
         return res;
     }
 
-    public static List<String> afficherMessages(Channel channel){
-        List<String> res = new ArrayList<String>();
-        List<Message> list =  MessageService.messageRepository.select();
-        int size = MessageService.messageRepository.select().size();
-        for (int i = 0;i<list.size();i++){
-            if (i ==1) {
-                return res;
-            }
-            else if (list.get(size-1-i).getChannel().equals(channel.getId())) {
-                res.add(list.get(i).getMessage());
-            }
-        }
-        return res;
-    }
+
 }
