@@ -12,6 +12,7 @@ import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 import slack.model.Channel;
 import slack.service.ChannelService;
+import slack.service.UserService;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -66,8 +67,12 @@ public class ChannelsListController {
     }
 
     public void switchToMenu(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(SignUpController.class.getResource("Menu.fxml"));
-
+        FXMLLoader fxmlLoader;
+        if(UserService.getCurrentUser().getAdmin()) {
+            fxmlLoader = new FXMLLoader(SignUpController.class.getResource("AdminMenu.fxml"));
+        } else {
+            fxmlLoader = new FXMLLoader(SignUpController.class.getResource("Menu.fxml"));
+        }
         //Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(),1920,1080);

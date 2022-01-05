@@ -25,7 +25,7 @@ public class AdminMenuController {
 
     @FXML
     public void switchToChannelCreation(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(SignUpController.class.getResource("ChannelsList.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(SignUpController.class.getResource("ChannelCreation.fxml"));
 
         //Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -37,7 +37,7 @@ public class AdminMenuController {
 
     @FXML
     public void switchToChannelDelete(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(SignUpController.class.getResource("ChannelsList.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(SignUpController.class.getResource("ChannelDelete.fxml"));
 
         //Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
