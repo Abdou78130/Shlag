@@ -83,7 +83,7 @@ public class ChannelRepository implements Repository<Channel> {
                 channel = new Channel(id, users, messages);
             }
             else
-                System.out.println("select : Le channel"+id+" n'existe pas !");
+                System.out.println("select : Le channel "+id+" n'existe pas !");
 
             s.close();
             con.close();
