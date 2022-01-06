@@ -32,7 +32,7 @@ public class Client {
             //cur_chan.addUser(cur_us.getUserId());
             do{
                 line=entree.readLine();
-                line = u.getId()+" : "+line;
+                line = u.getId()+": "+line;
                 writer.println(line);
                 Client.readServ(reader,cur_us,cur_chan);
             }while(line!=null);
@@ -150,7 +150,7 @@ public class Client {
             }
             */
             
-            //System.out.println(reponse);
+            System.out.println(reponse);
             MessageService.creerMessage(reponse,cur_c,cur_u);
 
         }catch(IOException e){
